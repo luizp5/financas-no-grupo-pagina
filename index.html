@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- EDITÁVEL: título e descrição que aparecem no Google e no WhatsApp -->
+  <title>Dona Conta: as contas da casa no grupo do WhatsApp do casal</title>
+  <meta name="description" content="A Dona Conta fica no grupo do WhatsApp com você e quem divide as contas. Lance gastos por texto, áudio ou foto. Um lembra o outro, e os dois ficam sabendo de tudo.">
+  <meta name="theme-color" content="#0034a3">
+
+  <!-- EDITÁVEL: Open Graph (prévia do link no WhatsApp, Facebook e Instagram).
+       og:url e og:image precisam do endereço completo da página publicada. -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Dona Conta">
+  <meta property="og:title" content="Dona Conta: as contas da casa no grupo do WhatsApp do casal">
+  <meta property="og:description" content="Vocês lançam os gastos no grupo, os dois veem tudo e um lembra o outro. Teste grátis, sem cartão.">
+  <meta property="og:url" content="https://donaconta.com.br/">
+  <meta property="og:image" content="https://donaconta.com.br/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Dona Conta: o controle das contas no grupo do WhatsApp do casal">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://donaconta.com.br/">
+  <!-- FIM EDITÁVEL -->
+
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@72,800&display=swap">
+  <link rel="stylesheet" href="css/estilo.css">
+
+  <script src="config.js"></script>
+  <script src="js/pagina.js" defer></script>
+</head>
+<body>
+  <!-- Ícones usados na página (desenho de linha, herdam a cor do texto) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></symbol>
+      <symbol id="i-foto" viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></symbol>
+      <symbol id="i-etiqueta" viewBox="0 0 24 24"><path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1.5"/></symbol>
+      <symbol id="i-cartao" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h4"/></symbol>
+      <symbol id="i-conta" viewBox="0 0 24 24"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></symbol>
+      <symbol id="i-pergunta" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M10 9a2 2 0 1 1 2.5 1.9c-.3.1-.5.4-.5.7V12M12 14.2v.1"/></symbol>
+      <symbol id="i-pessoas" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14a5 5 0 0 1 5 5"/></symbol>
+      <symbol id="i-editar" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13 7l4 4"/></symbol>
+      <symbol id="i-meta" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r=".8"/></symbol>
+      <symbol id="i-agenda" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></symbol>
+      <symbol id="i-sino" viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 20a2 2 0 0 0 4 0"/></symbol>
+      <symbol id="i-resumo" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></symbol>
+      <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7L12 6.3"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></symbol>
+      <symbol id="i-sincronia" viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 14-5.3L20 9M20 4v5h-5"/><path d="M20 12a8 8 0 0 1-14 5.3L4 15M4 20v-5h5"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+      <symbol id="i-cadeado" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+      <symbol id="i-celular" viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2"/><path d="M11 18.5h2"/></symbol>
+    </defs>
+  </svg>
+
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="topo">
+    <div class="caixa topo__linha">
+      <a class="topo__marca" href="#" aria-label="Dona Conta, início">
+        <img class="logo" src="assets/logo.webp" width="418" height="96" alt="Dona Conta" data-logo="claro">
+      </a>
+      <a class="topo__entrar" href="https://app.donaconta.com.br/login" data-app="/login">Entrar</a>
+    </div>
+  </header>
+
+  <main id="conteudo">
+
+    <!-- ============ 1. TOPO (HERO) ============ -->
+    <section class="hero" id="topo">
+      <div class="caixa hero__grade">
+        <div class="hero__texto">
+          <!-- EDITÁVEL: headline e subtítulo -->
+          <p class="selo">No grupo do WhatsApp de vocês</p>
+          <h1>Você não precisa de mais um app de finanças. Precisa de alguém que te lembre de usar.</h1>
+          <p class="hero__sub">A <span data-assistente>Dona Conta</span> fica no grupo do WhatsApp com você e quem divide as contas. Cada gasto lançado aparece para os dois, e um lembra o outro todo dia.</p>
+          <!-- FIM EDITÁVEL -->
+          <div class="cta">
+            <a class="btn btn--primario btn--grande" href="https://app.donaconta.com.br/assinar/familia" data-assinar data-cta-texto>Começar teste grátis</a>
+            <p class="cta__nota" data-cta-nota>Sem cartão. Pronto em 2 minutos.</p>
+          </div>
+        </div>
+
+        <!-- Conversa de exemplo (ilustração; não é print real) -->
+        <figure class="celular" aria-label="Exemplo de conversa no grupo Minhas finanças">
+          <div class="celular__tela">
+            <div class="zap__topo">
+              <img src="assets/mascote.webp" width="36" height="36" alt="" class="zap__avatar">
+              <div>
+                <strong>Minhas finanças</strong>
+                <span>Ana, Beto, <span data-assistente>Dona Conta</span></span>
+              </div>
+            </div>
+            <div class="zap__conversa">
+              <p class="bolha bolha--eu"><b class="bolha__nome">Ana</b>gastei 230 no mercado<time>12:04</time></p>
+              <p class="bolha bolha--ela"><b class="bolha__nome bolha__nome--ela" data-assistente>Dona Conta</b>✅ Despesa adicionada<br>📲 Mercado · 💰 R$ 230,00<br>📍 Alimentação<br>👉 Código: GF8656<time>12:04</time></p>
+              <p class="bolha bolha--outro"><b class="bolha__nome bolha__nome--outro">Beto</b><span class="audio" aria-label="Mensagem de áudio de 7 segundos"><svg class="i" aria-hidden="true"><use href="#i-mic"/></svg><span class="audio__onda"></span>0:07</span><time>12:31</time></p>
+              <p class="bolha bolha--ela"><b class="bolha__nome bolha__nome--ela" data-assistente>Dona Conta</b>✅ Farmácia · R$ 48,00<br>💳 Cartão Nubank · Saúde<time>12:31</time></p>
+            </div>
+          </div>
+          <figcaption>Conversa de exemplo</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ 2. A DOR ============ -->
+    <section class="secao" id="dor">
+      <div class="caixa caixa--estreita">
+        <!-- EDITÁVEL -->
+        <h2>Você já baixou um app de finanças. Talvez três.</h2>
+        <p class="lead">Na primeira semana você lançou tudo. Na segunda, esqueceu o almoço. Na terceira, o mercado. No fim do mês, o app mostrava metade da verdade, e você desistiu.</p>
+        <!-- FIM EDITÁVEL -->
+      </div>
+      <div class="caixa">
+        <ul class="sintomas">
+          <li>Chega o fim do mês e ninguém sabe para onde foi o dinheiro.</li>
+          <li>Um dos dois paga a conta, o outro não fica sabendo.</li>
+          <li>A conta de luz venceu e cada um achou que o outro tinha pago.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 3. POR QUE OS APPS FALHAM ============ -->
+    <section class="secao secao--creme" id="por-que">
+      <div class="caixa caixa--estreita">
+        <!-- EDITÁVEL -->
+        <h2>O problema não é você. É fazer sozinho.</h2>
+        <p class="lead">Todo app de registro, até os de WhatsApp, depende de uma pessoa só lembrar todo santo dia. Ninguém sustenta isso. Dieta, academia e finanças funcionam melhor quando alguém faz junto.</p>
+        <!-- FIM EDITÁVEL -->
+      </div>
+      <div class="caixa">
+        <div class="comparacao">
+          <div class="comparacao__lado comparacao__lado--solo">
+            <h3>App solo</h3>
+            <ul>
+              <li><svg class="i" aria-hidden="true"><use href="#i-x"/></svg>Você manda para um número.</li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-x"/></svg>Ninguém vê.</li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-x"/></svg>Ninguém cobra.</li>
+            </ul>
+          </div>
+          <div class="comparacao__lado comparacao__lado--grupo">
+            <h3 data-marca>Dona Conta</h3>
+            <ul>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Vocês mandam no grupo.</li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Os dois veem.</li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Um lembra o outro.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 4. A VIRADA: O GRUPO ============ -->
+    <section class="secao" id="virada">
+      <div class="caixa">
+        <h2 class="centro">Por isso a <span data-assistente>Dona Conta</span> mora no grupo de vocês.</h2>
+        <div class="pilares">
+          <div class="pilar">
+            <span class="pilar__icone"><svg class="i" aria-hidden="true"><use href="#i-pessoas"/></svg></span>
+            <h3>Um lembra o outro</h3>
+            <p>Viu o lançamento dele e lembrou do seu.</p>
+          </div>
+          <div class="pilar">
+            <span class="pilar__icone"><svg class="i" aria-hidden="true"><use href="#i-sincronia"/></svg></span>
+            <h3>Os dois sincronizados</h3>
+            <p>Ninguém precisa perguntar quanto sobrou.</p>
+          </div>
+          <div class="pilar">
+            <span class="pilar__icone"><svg class="i" aria-hidden="true"><use href="#i-sino"/></svg></span>
+            <h3>Ela cobra os dois</h3>
+            <p>Todo dia às 8h ela avisa no grupo o que vence. Os dois leem.</p>
+          </div>
+        </div>
+
+        <!-- EDITÁVEL: história do fundador. Para tirar, use fundador.mostrar: false no config.js -->
+        <figure class="fundador" data-fundador>
+          <img class="fundador__foto" src="assets/mascote.webp" width="120" height="120" alt="" data-fundador-foto>
+          <blockquote>
+            <p>“Eu testei os apps de WhatsApp e esquecia de lançar. Quando passei a lançar no grupo com a minha esposa, a gente parou de esquecer.”</p>
+            <footer data-fundador-nome>Guilherme, fundador</footer>
+          </blockquote>
+        </figure>
+        <!-- FIM EDITÁVEL -->
+      </div>
+    </section>
+
+    <!-- ============ 5. COMO FUNCIONA EM 3 PASSOS ============ -->
+    <section class="secao secao--azul" id="como-funciona">
+      <div class="caixa">
+        <h2 class="centro">Como funciona, em 3 passos</h2>
+        <ol class="passos">
+          <li>
+            <span class="passos__num">1</span>
+            <h3>Crie a conta</h3>
+            <p>Nome, e-mail e WhatsApp. Confirme o código.</p>
+          </li>
+          <li>
+            <span class="passos__num">2</span>
+            <h3>O grupo nasce sozinho</h3>
+            <p>A <span data-assistente>Dona Conta</span> cria o grupo e coloca você. Depois, adicione quem divide as contas.</p>
+          </li>
+          <li>
+            <span class="passos__num">3</span>
+            <h3>Lance falando</h3>
+            <p>Texto, áudio ou foto da nota. Ela organiza.</p>
+          </li>
+        </ol>
+        <div class="cta cta--centro">
+          <a class="btn btn--destaque btn--grande" href="https://app.donaconta.com.br/assinar/familia" data-assinar>Criar meu grupo agora</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 6. VEJA NA PRÁTICA ============ -->
+    <!-- Prints reais: salve os arquivos em assets/prints/ com estes nomes
+         (01-texto.webp, 02-audio.webp, 03-foto.webp, 04-pergunta.webp,
+         05-aviso-8h.webp, 06-resumo.webp) e ligue printsProntos no config.js. -->
+    <section class="secao" id="na-pratica">
+      <div class="caixa">
+        <h2 class="centro">Veja na prática</h2>
+        <p class="lead centro">É assim que fica o grupo de vocês.</p>
+        <div class="prints" tabindex="0" aria-label="Prints do grupo">
+          <figure class="print" data-print="01-texto">
+            <div class="print__marcador"><svg class="i" aria-hidden="true"><use href="#i-pergunta"/></svg>Print: lançamento por texto</div>
+            <figcaption>Escreveu como fala, ela lançou e mandou o código.</figcaption>
+          </figure>
+          <figure class="print" data-print="02-audio">
+            <div class="print__marcador"><svg class="i" aria-hidden="true"><use href="#i-mic"/></svg>Print: áudio transcrito</div>
+            <figcaption>Na correria, um áudio resolve.</figcaption>
+          </figure>
+          <figure class="print" data-print="03-foto">
+            <div class="print__marcador"><svg class="i" aria-hidden="true"><use href="#i-foto"/></svg>Print: foto da nota</div>
+            <figcaption>Foto da nota, e tá lançado.</figcaption>
+          </figure>
+          <figure class="print" data-print="04-pergunta">
+            <div class="print__marcador"><svg class="i" aria-hidden="true"><use href="#i-pergunta"/></svg>Print: “quanto gastamos com mercado este mês?”</div>
+            <figcaption>Pergunte, e a resposta vem na hora.</figcaption>
+          </figure>
+          <figure class="print" data-print="05-aviso-8h">
+            <div class="print__marcador"><svg class="i" aria-hidden="true"><use href="#i-sino"/></svg>Print: o aviso das 8h</div>
+            <figcaption>De manhã, os dois sabem o que vence.</figcaption>
+          </figure>
+          <figure class="print" data-print="06-resumo">
+            <div class="print__marcador"><svg class="i" aria-hidden="true"><use href="#i-resumo"/></svg>Print: o resumo de domingo</div>
+            <figcaption>No domingo, a semana inteira num resumo.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 7. UM DIA COM A ASSISTENTE ============ -->
+    <section class="secao secao--creme" id="um-dia">
+      <div class="caixa caixa--estreita">
+        <h2>Um dia com a <span data-assistente>Dona Conta</span></h2>
+        <ol class="linha-tempo">
+          <li><time>08h</time><p><span class="msg">🔔 Bom dia! Vence hoje: internet R$ 99,90.</span></p></li>
+          <li><time>12h</time><p>Ela lança o almoço por áudio.</p></li>
+          <li><time>15h</time><p>Ele manda foto do comprovante da farmácia.</p></li>
+          <li><time>19h</time><p><span class="msg">🔔 Vence amanhã: cartão Nubank.</span></p></li>
+          <li><time>22h</time><p>“quanto sobrou para o mês?” A resposta chega na hora.</p></li>
+          <li><time>Dom.</time><p>Às 19h, o resumo da semana chega no grupo: quanto entrou, quanto saiu, o maior gasto e o que vence.</p></li>
+        </ol>
+        <p class="fecho">Nenhum dos dois abriu um app. Os dois sabem exatamente onde estão.</p>
+      </div>
+    </section>
+
+    <!-- ============ 8. TUDO O QUE ELA FAZ ============ -->
+    <section class="secao" id="recursos">
+      <div class="caixa">
+        <h2 class="centro">Tudo o que ela faz</h2>
+        <div class="recursos">
+          <article class="recurso"><svg class="i" aria-hidden="true"><use href="#i-mic"/></svg><h3>Áudio e foto</h3><p>Na correria, manda um áudio. Tirou foto da nota? Pronto, tá lançado.</p></article>
+          <article class="recurso"><svg class="i" aria-hidden="true"><use href="#i-etiqueta"/></svg><h3>Categoria sozinha</h3><p>Mercado vai para Alimentação sem você pensar.</p></article>
+          <article class="recurso"><svg class="i" aria-hidden="true"><use href="#i-cartao"/></svg><h3>Cartões e parcelas</h3><p>Ela sabe em qual cartão foi e em que fatura cai cada parcela.</p></article>
+          <article class="recurso"><svg class="i" aria-hidden="true"><use href="#i-conta"/></svg><h3>Contas a pagar</h3><p>“Vence a luz dia 10” vira conta em aberto. “Paguei” dá baixa. Nenhuma conta esquecida.</p></article>
+          <article class="recurso"><svg class="i" aria-hidden="true"><use href="#i-sino"/></svg><h3>Aviso de vencimento</h3><p>Todo dia de manhã ela avisa os dois no grupo o que vence.</p></article>
+          <article class="recurso"><svg class="i" aria-hidden="true"><use href="#i-resumo"/></svg><h3>Resumo de domingo</h3><p>Todo domingo, o resumo da semana chega no grupo para os dois.</p></article>
+          <article class="recurso"><svg class="i" aria-hidden="true"><use href="#i-pergunta"/></svg><h3>Perguntas</h3><p>Pergunte como perguntaria ao seu parceiro: “quanto gastei com mercado?”</p></article>
+          <article class="recurso"><svg class="i" aria-hidden="true"><use href="#i-link"/></svg><h3>Link para o gráfico</h3><p>Quer ver mais? A resposta já vem com o link do gráfico no app.</p></article>
+          <article class="recurso"><svg class="i" aria-hidden="true"><use href="#i-pessoas"/></svg><h3>Quem lançou</h3><p>Os dois veem tudo, com o nome de quem lançou. Sem cobrança, sem surpresa.</p></article>
+          <article class="recurso"><svg class="i" aria-hidden="true"><use href="#i-editar"/></svg><h3>Corrigir falando</h3><p>Errou? Fala “o almoço foi 32” que ela corrige.</p></article>
+          <article class="recurso"><svg class="i" aria-hidden="true"><use href="#i-meta"/></svg><h3>Metas que avisam antes</h3><p>Ela avisa antes de estourar, não depois.</p></article>
+          <article class="recurso"><svg class="i" aria-hidden="true"><use href="#i-agenda"/></svg><h3>Agenda e lembretes</h3><p>Compromissos da casa no mesmo lugar, com lembrete antes.</p></article>
+        </div>
+        <div class="cta cta--centro">
+          <a class="btn btn--primario btn--grande" href="https://app.donaconta.com.br/assinar/familia" data-assinar data-cta-texto>Começar teste grátis</a>
+          <p class="cta__nota" data-cta-nota>Sem cartão. Pronto em 2 minutos.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 9. O PAINEL COMPLETO ============ -->
+    <!-- Print real: assets/prints/07-painel.webp (computador e celular) -->
+    <section class="secao secao--creme" id="painel">
+      <div class="caixa painel">
+        <div class="painel__texto">
+          <h2>No WhatsApp é conversa. No painel, a visão completa.</h2>
+          <ul class="lista-check">
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Nota de saúde financeira, de 0 a 100.</li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Para onde foi seu dinheiro, por categoria e por pessoa.</li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Contas, cartões, faturas, metas e parcelamentos.</li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Relatórios em PDF e Excel.</li>
+          </ul>
+          <p class="painel__app"><svg class="i" aria-hidden="true"><use href="#i-celular"/></svg>Instale na tela do celular como um app.</p>
+        </div>
+        <figure class="print print--largo" data-print="07-painel">
+          <div class="print__marcador"><svg class="i" aria-hidden="true"><use href="#i-resumo"/></svg>Print: o painel no computador e no celular</div>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ 10. PARA QUEM É / NÃO É ============ -->
+    <section class="secao" id="para-quem">
+      <div class="caixa">
+        <div class="para-quem">
+          <div class="para-quem__lado">
+            <h2>É para</h2>
+            <ul class="lista-check">
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Casais que dividem as contas.</li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Famílias.</li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Quem já desistiu de planilha e de app.</li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Quem mora com alguém.</li>
+            </ul>
+          </div>
+          <div class="para-quem__lado para-quem__lado--nao">
+            <h2>Não é para</h2>
+            <ul class="lista-x">
+              <li><svg class="i" aria-hidden="true"><use href="#i-x"/></svg>Quem quer controlar investimentos.</li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-x"/></svg>Quem quer conectar o banco e não lançar nada.</li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-x"/></svg>Empresas.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 11. DEPOIMENTOS ============ -->
+    <!-- Seção desligada até existirem depoimentos REAIS (print de WhatsApp ou
+         vídeo, com nome e cidade, e autorização do casal). Nunca invente.
+         Para ligar, tire os marcadores de comentário em volta da seção.
+    <section class="secao secao--creme" id="depoimentos">
+      <div class="caixa">
+        <h2 class="centro">Quem já lança no grupo</h2>
+        <div class="depoimentos">
+          <figure class="depoimento">
+            <img src="assets/depoimentos/01.webp" width="360" height="640" alt="Print da conversa de NOME, CIDADE" loading="lazy">
+            <figcaption>NOME e NOME, CIDADE</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+    -->
+
+    <!-- ============ 12. OFERTA E PREÇO ============ -->
+    <section class="secao secao--azul" id="planos">
+      <div class="caixa">
+        <h2 class="centro">Comece hoje, sem risco</h2>
+        <div class="oferta">
+          <div class="pilha">
+            <h3>O que vocês recebem</h3>
+            <!-- EDITÁVEL: pilha de valor. Confira se o plano do botão inclui os envios automáticos (Admin → Planos) -->
+            <ul class="lista-check">
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Assistente no grupo do casal.</li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Lançamento por texto, áudio e foto.</li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Avisos diários de vencimento.</li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Resumo da semana no grupo, todo domingo.</li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Metas que avisam antes de estourar.</li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Painel com relatórios e exportação.</li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>App na tela do celular.</li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Agenda com lembretes.</li>
+            </ul>
+            <!-- FIM EDITÁVEL -->
+          </div>
+          <div class="planos-area">
+            <div class="ciclos" role="radiogroup" aria-label="Ciclo de pagamento" hidden></div>
+            <!-- Os cartões dos planos são montados por js/pagina.js: ao vivo do
+                 sistema, ou com os precosReserva do config.js -->
+            <div class="planos" aria-live="polite"></div>
+            <p class="ancora" hidden></p>
+            <p class="planos__nota">Sem cartão no teste. Pix ou cartão depois. Seus dados ficam guardados mesmo se parar.</p>
+          </div>
+        </div>
+        <p class="garantia"><svg class="i" aria-hidden="true"><use href="#i-cadeado"/></svg><span>O teste grátis já é a garantia. Para quem assina direto, vale o direito de arrependimento de 7 dias do Código de Defesa do Consumidor: é só pedir pelo e-mail <a href="mailto:contato@donaconta.com.br" data-email>contato@donaconta.com.br</a>.</span></p>
+      </div>
+    </section>
+
+    <!-- ============ 13. PERGUNTAS FREQUENTES ============ -->
+    <section class="secao" id="perguntas">
+      <div class="caixa caixa--estreita">
+        <h2>Perguntas frequentes</h2>
+        <!-- EDITÁVEL: perguntas e respostas -->
+        <div class="faq">
+          <details><summary>Já tentei app e larguei. Por que agora seria diferente?</summary><p>Você largou porque estava sozinho. No grupo, um lembra o outro, e a <span data-assistente>Dona Conta</span> lembra os dois.</p></details>
+          <details><summary>Meu parceiro não vai usar.</summary><p>Não precisa instalar nem aprender nada: é mandar mensagem num grupo. E mesmo que só você lance, a outra pessoa vê tudo e recebe os avisos.</p></details>
+          <details><summary>É seguro? A IA lê minhas mensagens?</summary><p>Ela só lê o grupo de vocês, e cada pessoa autoriza antes. Áudio e foto não ficam guardados. Ninguém de fora vê os dados da sua conta.</p></details>
+          <details><summary>Preciso dar a senha do banco?</summary><p>Não. Nada de banco conectado: você manda o gasto, ela organiza.</p></details>
+          <details><summary>Dá trabalho lançar tudo?</summary><p>É uma mensagem, um áudio ou uma foto. Menos de 10 segundos.</p></details>
+          <details><summary>E se ela entender errado?</summary><p>Na dúvida, ela pergunta. Errou? Fala “o almoço foi 32” e ela corrige.</p></details>
+          <details><summary>Funciona para a família toda?</summary><p>Sim, dá para colocar quem divide as contas. Cada lançamento mostra quem lançou.</p></details>
+          <details data-so-teste><summary>Preciso de cartão para testar?</summary><p>Não. No fim do teste, vocês escolhem se querem assinar.</p></details>
+          <details><summary>E se eu parar de pagar?</summary><p>O acesso pausa, mas tudo o que vocês lançaram continua guardado.</p></details>
+          <!-- Resposta provisória: ainda não há botão de cancelar no portal (lacuna 2 do PRD) -->
+          <details><summary>Como cancelo?</summary><p>Por enquanto, pelo suporte: chame no <a href="https://wa.me/5511999999999" data-whatsapp>WhatsApp</a> ou mande um e-mail para <a href="mailto:contato@donaconta.com.br" data-email>contato@donaconta.com.br</a>, e a renovação é encerrada.</p></details>
+        </div>
+        <!-- FIM EDITÁVEL -->
+      </div>
+    </section>
+
+    <!-- ============ 14. CHAMADA FINAL ============ -->
+    <section class="secao secao--final" id="final">
+      <div class="caixa caixa--estreita centro">
+        <img src="assets/mascote.webp" width="120" height="120" alt="" class="final__mascote" loading="lazy">
+        <h2>Daqui a 30 dias vocês vão saber para onde foi cada real. Juntos.</h2>
+        <div class="cta cta--centro">
+          <a class="btn btn--destaque btn--grande" href="https://app.donaconta.com.br/assinar/familia" data-assinar data-cta-texto>Começar teste grátis</a>
+          <p class="cta__nota" data-cta-nota>Sem cartão. Pronto em 2 minutos.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ RODAPÉ ============ -->
+  <footer class="rodape">
+    <div class="caixa rodape__grade">
+      <img class="logo" src="assets/logo-escuro.webp" width="418" height="96" alt="Dona Conta" data-logo="escuro" loading="lazy">
+      <nav class="rodape__links" aria-label="Links do rodapé">
+        <a href="https://app.donaconta.com.br/termos" data-app="/termos">Termos de uso</a>
+        <a href="https://app.donaconta.com.br/privacidade" data-app="/privacidade">Privacidade</a>
+        <a href="https://app.donaconta.com.br/login" data-app="/login">Entrar</a>
+        <a href="https://wa.me/5511999999999" data-whatsapp>WhatsApp</a>
+        <a href="https://instagram.com/" data-instagram hidden>Instagram</a>
+      </nav>
+      <p class="rodape__empresa">
+        <a href="mailto:contato@donaconta.com.br" data-email>contato@donaconta.com.br</a>
+        <span data-empresa hidden></span>
+        <span data-cnpj>CNPJ 00.000.000/0001-00</span>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Botão fixo no celular, aparece depois do topo -->
+  <div class="barra-fixa" aria-hidden="true">
+    <a class="btn btn--primario" href="https://app.donaconta.com.br/assinar/familia" data-assinar data-cta-texto tabindex="-1">Começar teste grátis</a>
+  </div>
+
+  <!-- Aviso de cookies: só aparece com o Pixel ou o GA ligados no config.js -->
+  <div class="cookies" role="region" aria-label="Aviso de cookies" hidden>
+    <p>Usamos cookies para medir de onde vêm as visitas e melhorar nossos anúncios. Veja a <a href="https://app.donaconta.com.br/privacidade" data-app="/privacidade">política de privacidade</a>.</p>
+    <button type="button" class="btn btn--primario btn--pequeno" data-cookies-ok>Entendi</button>
+  </div>
+</body>
+</html>

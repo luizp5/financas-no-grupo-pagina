@@ -281,6 +281,10 @@ window.SITE = {
 
 Os valores acima são de exemplo, não preços decididos.
 
+**Na construção (21/10/2026), o `config.js` ganhou:** `api` (no Dona Conta a API fica em `api.donaconta.com.br`, não no `app.`; vazio = o mesmo do app, `false` = não chama o sistema), `coresDaApi`, `logoDaApi` (desligado: o logo do Admin hoje tem mais de 500 KB), `printsProntos`, `fundador`, `lancheReais` (a frase de ancoragem só aparece se o plano custar menos que isso por semana), `empresa` e `instagram`.
+
+**Produção em 21/10/2026:** `api.donaconta.com.br` ainda não tem a 1.12 (o CORS só aceita `https://app.donaconta.com.br`) e `/v1/public/plans` devolve `[]`. Até atualizar e cadastrar um plano público, a página mostra os preços de reserva. Lista vazia também cai na reserva.
+
 **O que vem ao vivo do sistema** (liberado na versão 1.12.0 da API, PR #40)
 
 | Dado | Rota | Uso na página |

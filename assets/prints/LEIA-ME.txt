@@ -1,0 +1,4 @@
+Prints reais do produto (WebP, com dados de exemplo):
+01-texto.webp, 02-audio.webp, 03-foto.webp, 04-pergunta.webp,
+05-aviso-8h.webp, 06-resumo.webp (celular, 9:16) e 07-painel.webp (16:10).
+Depois de salvar, troque para printsProntos: true no config.js.
