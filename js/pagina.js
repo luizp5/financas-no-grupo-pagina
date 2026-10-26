@@ -12,6 +12,8 @@
 (function () {
   'use strict';
 
+  document.documentElement.classList.add('js');
+
   var cfg = window.SITE || {};
   var app = semBarra(cfg.app || '');
   // api: false desliga as chamadas ao sistema (a página fica só com o config.js).
@@ -73,19 +75,6 @@
     if (f.nome) todos('[data-fundador-nome]').forEach(function (n) { n.textContent = f.nome; });
     if (f.foto) todos('[data-fundador-foto]').forEach(function (n) { n.src = f.foto; n.alt = f.nome || ''; });
 
-    if (cfg.printsProntos) {
-      todos('[data-print]').forEach(function (fig) {
-        var marcador = fig.querySelector('.print__marcador');
-        if (!marcador) return;
-        var legenda = fig.querySelector('figcaption');
-        var img = el('img');
-        img.src = 'assets/prints/' + fig.getAttribute('data-print') + '.webp';
-        img.alt = legenda ? legenda.textContent : marcador.textContent.replace(/^Print:\s*/, '');
-        img.loading = 'lazy';
-        img.decoding = 'async';
-        fig.replaceChild(img, marcador);
-      });
-    }
   }
 
   /* ---------- Links de assinatura com os utm_* ---------- */
@@ -423,6 +412,290 @@
     }).observe(fim);
   }
 
+  /* ---------- Demonstração completa da conversa no celular ---------- */
+
+  function ligarDemoConversas() {
+    var demo = document.querySelector('.celular--demo');
+    var reduzMovimento = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!demo || reduzMovimento) return;
+
+    var digitado = demo.querySelector('[data-demo-digitado]');
+    var tempoAudio = demo.querySelector('[data-demo-tempo-audio]');
+    var feed = demo.querySelector('[data-demo-feed]');
+    var etapas = todos('.demo-etapas i', demo);
+    var cenas = {
+      receita: demo.querySelector('[data-demo-cena="receita"]'),
+      audio: demo.querySelector('[data-demo-cena="audio"]'),
+      relatorio: demo.querySelector('[data-demo-cena="relatorio"]'),
+      meta: demo.querySelector('[data-demo-cena="meta"]')
+    };
+    var classesDeFase = [
+      'is-digitando-cliente', 'is-pronto-enviar', 'is-apertando-enviar',
+      'is-agente-digitando', 'is-gravando', 'is-audio-pronto'
+    ];
+
+    function esperar(ms) {
+      return new Promise(function (resolver) { window.setTimeout(resolver, ms); });
+    }
+
+    function limparFases() {
+      classesDeFase.forEach(function (classe) { demo.classList.remove(classe); });
+      if (digitado) digitado.textContent = '';
+      if (tempoAudio) tempoAudio.textContent = '0:00';
+    }
+
+    function rolarHistorico() {
+      if (!feed) return;
+      window.requestAnimationFrame(function () {
+        feed.scrollTo({ top: feed.scrollHeight, behavior: 'smooth' });
+      });
+    }
+
+    function adicionarAoHistorico(cena, seletor) {
+      if (!feed || !cena) return null;
+      var modelo = cena.querySelector(seletor);
+      if (!modelo) return null;
+      var item = modelo.cloneNode(true);
+      item.classList.add('demo-feed__item');
+      item.removeAttribute('style');
+      feed.appendChild(item);
+      rolarHistorico();
+      return item;
+    }
+
+    async function reiniciarHistorico() {
+      if (!feed || !feed.children.length) return;
+      feed.classList.add('is-reiniciando');
+      await esperar(420);
+      feed.innerHTML = '';
+      feed.scrollTop = 0;
+      feed.classList.remove('is-reiniciando');
+      await esperar(260);
+    }
+
+    function ativarCena(nome, indice) {
+      limparFases();
+      Object.keys(cenas).forEach(function (chave) {
+        var cena = cenas[chave];
+        if (!cena) return;
+        cena.classList.remove('is-ativa', 'is-mensagem-enviada', 'is-resposta-visivel', 'is-sticker-visivel');
+      });
+      etapas.forEach(function (etapa, posicao) { etapa.classList.toggle('is-ativa', posicao === indice); });
+      if (cenas[nome]) cenas[nome].classList.add('is-ativa');
+      return cenas[nome];
+    }
+
+    async function digitarMensagem(texto) {
+      demo.classList.add('is-digitando-cliente');
+      if (!digitado) return;
+      digitado.textContent = '';
+      await esperar(420);
+      for (var i = 0; i < texto.length; i += 1) {
+        digitado.textContent += texto.charAt(i);
+        digitado.scrollLeft = digitado.scrollWidth;
+        await esperar(texto.charAt(i) === ' ' ? 32 : 47);
+      }
+      demo.classList.add('is-pronto-enviar');
+      await esperar(430);
+    }
+
+    async function pressionarEnviar(cena) {
+      demo.classList.add('is-apertando-enviar');
+      await esperar(190);
+      adicionarAoHistorico(cena, '.bolha--eu');
+      demo.classList.remove('is-apertando-enviar', 'is-pronto-enviar', 'is-digitando-cliente', 'is-gravando', 'is-audio-pronto');
+      if (digitado) digitado.textContent = '';
+    }
+
+    async function agenteResponde(cena, mostrarSticker) {
+      await esperar(1250);
+      demo.classList.add('is-agente-digitando');
+      rolarHistorico();
+      await esperar(1250);
+      demo.classList.remove('is-agente-digitando');
+      adicionarAoHistorico(cena, '.demo-resposta');
+      if (mostrarSticker) {
+        await esperar(650);
+        adicionarAoHistorico(cena, '.demo-sticker-wrap');
+      }
+    }
+
+    async function cenaReceita() {
+      var cena = ativarCena('receita', 0);
+      await digitarMensagem('Recebi 1550,00 pela criação de um site');
+      await pressionarEnviar(cena);
+      await agenteResponde(cena, true);
+      await esperar(2600);
+    }
+
+    async function cenaAudio() {
+      var cena = ativarCena('audio', 1);
+      await esperar(550);
+      demo.classList.add('is-gravando');
+      for (var segundo = 0; segundo <= 5; segundo += 1) {
+        if (tempoAudio) tempoAudio.textContent = '0:0' + segundo;
+        await esperar(segundo === 0 ? 480 : 520);
+      }
+      demo.classList.remove('is-gravando');
+      demo.classList.add('is-audio-pronto', 'is-pronto-enviar');
+      await esperar(420);
+      await pressionarEnviar(cena);
+      await agenteResponde(cena, false);
+      await esperar(2600);
+    }
+
+    async function cenaRelatorio() {
+      var cena = ativarCena('relatorio', 2);
+      await esperar(650);
+      adicionarAoHistorico(cena, '.demo-resposta');
+      await esperar(4700);
+    }
+
+    async function cenaMeta() {
+      var cena = ativarCena('meta', 3);
+      await digitarMensagem('Como está a meta de delivery?');
+      await pressionarEnviar(cena);
+      await agenteResponde(cena, false);
+      await esperar(2700);
+    }
+
+    async function repetir() {
+      demo.classList.add('demo-controlada');
+      while (document.body.contains(demo)) {
+        await reiniciarHistorico();
+        await cenaReceita();
+        await cenaAudio();
+        await cenaRelatorio();
+        await cenaMeta();
+      }
+    }
+
+    repetir();
+  }
+
+  /* ---------- Tour pelas telas do aplicativo ---------- */
+
+  function ligarTourApp() {
+    var tour = document.querySelector('[data-tour-app]');
+    if (!tour) return;
+    var abas = todos('[role="tab"]', tour);
+    var imagem = tour.querySelector('[data-tour-imagem]');
+    var legenda = tour.querySelector('[data-tour-legenda]');
+    var viewport = tour.querySelector('.tour-app__viewport');
+    if (!abas.length || !imagem || !viewport) return;
+
+    function selecionar(aba, moverFoco) {
+      if (!aba || aba.getAttribute('aria-selected') === 'true') return;
+      viewport.classList.add('is-trocando');
+      window.setTimeout(function () {
+        imagem.src = aba.getAttribute('data-app-src');
+        imagem.alt = aba.getAttribute('data-app-alt') || '';
+        if (legenda) legenda.textContent = aba.getAttribute('data-app-legenda') || aba.textContent;
+        abas.forEach(function (item) {
+          var ativa = item === aba;
+          item.classList.toggle('is-active', ativa);
+          item.setAttribute('aria-selected', String(ativa));
+          item.tabIndex = ativa ? 0 : -1;
+        });
+        if (moverFoco) aba.focus();
+        window.requestAnimationFrame(function () { viewport.classList.remove('is-trocando'); });
+      }, 160);
+    }
+
+    abas.forEach(function (aba, indice) {
+      aba.addEventListener('click', function () { selecionar(aba, false); });
+      aba.addEventListener('keydown', function (evento) {
+        if (evento.key !== 'ArrowRight' && evento.key !== 'ArrowLeft') return;
+        evento.preventDefault();
+        var passo = evento.key === 'ArrowRight' ? 1 : -1;
+        selecionar(abas[(indice + passo + abas.length) % abas.length], true);
+      });
+    });
+  }
+
+  /* ---------- Contas, cartões, agenda e dashboard em movimento ---------- */
+
+  function ligarAppEmMovimento() {
+    var secao = document.querySelector('[data-app-movimento]');
+    if (!secao) return;
+
+    var reduzMovimento = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduzMovimento || !('IntersectionObserver' in window)) {
+      secao.classList.add('app-em-movimento--ativo');
+      return;
+    }
+
+    var observador = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (entrada) {
+        if (!entrada.isIntersecting) return;
+        secao.classList.add('app-em-movimento--ativo');
+        observador.disconnect();
+      });
+    }, { threshold: 0.16, rootMargin: '0px 0px -10% 0px' });
+
+    observador.observe(secao);
+  }
+
+  /* ---------- Movimento e acabamento visual ---------- */
+
+  function ligarMovimentoVisual() {
+    var reduzMovimento = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var barra = el('span', 'progresso-leitura');
+    barra.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(barra);
+
+    var topo = document.querySelector('.topo');
+    var ocupado = false;
+    function atualizarRolagem() {
+      var altura = document.documentElement.scrollHeight - window.innerHeight;
+      var progresso = altura > 0 ? Math.min(1, Math.max(0, window.scrollY / altura)) : 0;
+      barra.style.transform = 'scaleX(' + progresso + ')';
+      if (topo) topo.classList.toggle('topo--rolado', window.scrollY > 18);
+      ocupado = false;
+    }
+    window.addEventListener('scroll', function () {
+      if (ocupado) return;
+      ocupado = true;
+      window.requestAnimationFrame(atualizarRolagem);
+    }, { passive: true });
+    atualizarRolagem();
+
+    var seletores = [
+      '.secao .caixa > h2', '.secao .lead', '.sintomas > li',
+      '.comparacao > *', '.pilares > *', '.fundador', '.passos > li',
+      '.linha-tempo > li', '.recurso', '.painel > *',
+      '.produto-cabecalho', '.produto-card', '.dashboard-vivo',
+      '.para-quem > *', '.oferta > *', '.garantia', '.faq > details',
+      '.final__mascote', '.secao--final .cta'
+    ].join(',');
+    var animados = todos(seletores);
+    animados.forEach(function (item) {
+      var irmaos = item.parentElement ? Array.prototype.filter.call(item.parentElement.children, function (filho) {
+        return filho.matches && filho.matches(item.tagName.toLowerCase() + (item.classList.length ? '.' + item.classList[0] : ''));
+      }) : [];
+      var indice = Math.max(0, irmaos.indexOf(item));
+      item.classList.add('revelar');
+      item.style.setProperty('--atraso', Math.min(indice, 5) * 70 + 'ms');
+    });
+
+    if (reduzMovimento || !('IntersectionObserver' in window)) {
+      animados.forEach(function (item) { item.classList.add('revelado'); });
+    } else {
+      var observador = new IntersectionObserver(function (entradas) {
+        entradas.forEach(function (entrada) {
+          if (!entrada.isIntersecting) return;
+          entrada.target.classList.add('revelado');
+          observador.unobserve(entrada.target);
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      animados.forEach(function (item) { observador.observe(item); });
+    }
+
+    window.requestAnimationFrame(function () {
+      window.requestAnimationFrame(function () { document.body.classList.add('pagina-pronta'); });
+    });
+  }
+
   /* ---------- Início ---------- */
 
   preencherTextos();
@@ -431,6 +704,10 @@
   estado.ciclo = 'monthly';
   desenharPlanos();
   ligarBarraFixa();
+  ligarDemoConversas();
+  ligarAppEmMovimento();
+  ligarTourApp();
+  ligarMovimentoVisual();
   ligarMedicao();
   carregarMarca();
   carregarPlanos();

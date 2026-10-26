@@ -7,7 +7,7 @@
   <!-- EDITÁVEL: título e descrição que aparecem no Google e no WhatsApp -->
   <title>Dona Conta: as contas da casa no grupo do WhatsApp do casal</title>
   <meta name="description" content="A Dona Conta fica no grupo do WhatsApp com você e quem divide as contas. Lance gastos por texto, áudio ou foto. Um lembra o outro, e os dois ficam sabendo de tudo.">
-  <meta name="theme-color" content="#0034a3">
+  <meta name="theme-color" content="#061440">
 
   <!-- EDITÁVEL: Open Graph (prévia do link no WhatsApp, Facebook e Instagram).
        og:url e og:image precisam do endereço completo da página publicada. -->
@@ -30,11 +30,11 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@72,800&display=swap">
-  <link rel="stylesheet" href="css/estilo.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@72,800&family=Inter:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="css/estilo.css?v=20261022-14">
 
   <script src="config.js"></script>
-  <script src="js/pagina.js" defer></script>
+  <script src="js/pagina.js?v=20261022-9" defer></script>
 </head>
 <body>
   <!-- Ícones usados na página (desenho de linha, herdam a cor do texto) -->
@@ -66,7 +66,7 @@
   <header class="topo">
     <div class="caixa topo__linha">
       <a class="topo__marca" href="#" aria-label="Dona Conta, início">
-        <img class="logo" src="assets/logo.webp" width="418" height="96" alt="Dona Conta" data-logo="claro">
+        <img class="logo" src="assets/logo-escuro.webp" width="418" height="96" alt="Dona Conta" data-logo="escuro">
       </a>
       <a class="topo__entrar" href="https://app.donaconta.com.br/login" data-app="/login">Entrar</a>
     </div>
@@ -80,33 +80,158 @@
         <div class="hero__texto">
           <!-- EDITÁVEL: headline e subtítulo -->
           <p class="selo">No grupo do WhatsApp de vocês</p>
-          <h1>Você não precisa de mais um app de finanças. Precisa de alguém que te lembre de usar.</h1>
+          <h1>Você não precisa de mais um app de finanças. <span>Precisa de alguém que te lembre de usar.</span></h1>
           <p class="hero__sub">A <span data-assistente>Dona Conta</span> fica no grupo do WhatsApp com você e quem divide as contas. Cada gasto lançado aparece para os dois, e um lembra o outro todo dia.</p>
           <!-- FIM EDITÁVEL -->
           <div class="cta">
             <a class="btn btn--primario btn--grande" href="https://app.donaconta.com.br/assinar/familia" data-assinar data-cta-texto>Começar teste grátis</a>
             <p class="cta__nota" data-cta-nota>Sem cartão. Pronto em 2 minutos.</p>
           </div>
+          <ul class="hero__provas" aria-label="Vantagens">
+            <li>Funciona no WhatsApp</li>
+            <li>Sem planilha</li>
+            <li>Controle feito a dois</li>
+          </ul>
         </div>
 
-        <!-- Conversa de exemplo (ilustração; não é print real) -->
-        <figure class="celular" aria-label="Exemplo de conversa no grupo Minhas finanças">
-          <div class="celular__tela">
+        <!-- Demonstração animada inspirada em conversas reais; dados ilustrativos. -->
+        <figure class="celular celular--demo" aria-label="Demonstração animada: uma pessoa envia mensagens no grupo e a Dona Conta registra, responde e envia alertas">
+          <div class="celular__luz" aria-hidden="true"></div>
+          <span class="celular__botao celular__botao--silencio" aria-hidden="true"></span>
+          <span class="celular__botao celular__botao--volume-a" aria-hidden="true"></span>
+          <span class="celular__botao celular__botao--volume-b" aria-hidden="true"></span>
+          <span class="celular__botao celular__botao--energia" aria-hidden="true"></span>
+
+          <div class="celular__tela" aria-hidden="true">
+            <div class="celular__status">
+              <time>9:41</time>
+              <span class="celular__status-icones">
+                <i class="celular__sinal"></i>
+                <i class="celular__wifi"></i>
+                <i class="celular__bateria"></i>
+              </span>
+            </div>
+            <div class="celular__notch"><i></i></div>
             <div class="zap__topo">
-              <img src="assets/mascote.webp" width="36" height="36" alt="" class="zap__avatar">
-              <div>
-                <strong>Minhas finanças</strong>
+              <span class="zap__voltar">‹</span>
+              <img src="assets/mascote.webp" width="40" height="40" alt="" class="zap__avatar">
+              <div class="zap__grupo">
+                <strong>Contas da casa</strong>
                 <span>Ana, Beto, <span data-assistente>Dona Conta</span></span>
               </div>
+              <span class="zap__acoes">⌕ ···</span>
             </div>
-            <div class="zap__conversa">
-              <p class="bolha bolha--eu"><b class="bolha__nome">Ana</b>gastei 230 no mercado<time>12:04</time></p>
-              <p class="bolha bolha--ela"><b class="bolha__nome bolha__nome--ela" data-assistente>Dona Conta</b>✅ Despesa adicionada<br>📲 Mercado · 💰 R$ 230,00<br>📍 Alimentação<br>👉 Código: GF8656<time>12:04</time></p>
-              <p class="bolha bolha--outro"><b class="bolha__nome bolha__nome--outro">Beto</b><span class="audio" aria-label="Mensagem de áudio de 7 segundos"><svg class="i" aria-hidden="true"><use href="#i-mic"/></svg><span class="audio__onda"></span>0:07</span><time>12:31</time></p>
-              <p class="bolha bolha--ela"><b class="bolha__nome bolha__nome--ela" data-assistente>Dona Conta</b>✅ Farmácia · R$ 48,00<br>💳 Cartão Nubank · Saúde<time>12:31</time></p>
+
+            <div class="zap__conversa demo-chat">
+              <span class="demo-data">Hoje</span>
+              <div class="demo-cenas">
+                <div class="demo-feed" data-demo-feed aria-live="polite" aria-label="Histórico da conversa"></div>
+                <div class="demo-cena" data-demo-cena="receita" style="--cena: 0">
+                  <div class="bolha bolha--eu demo-texto">
+                    <b class="bolha__nome">Ana</b>
+                    Recebi 1550,00 pela criação de um site
+                    <time>10:11 ✓✓</time>
+                  </div>
+                  <article class="bolha bolha--ela demo-resposta">
+                    <b class="bolha__nome bolha__nome--ela" data-assistente>Dona Conta</b>
+                    <strong>Confirmação de Lançamento</strong>
+                    <p>✅ Sua receita foi adicionada com sucesso. Parabéns por mais essa receita!</p>
+                    <ul>
+                      <li>✅ Tipo: Receita</li>
+                      <li>📲 Descrição: Recebimento pela criação de um site</li>
+                      <li>💰 Valor: R$ 1.550,00</li>
+                      <li>📍 Categoria: Renda extra</li>
+                      <li>🗓️ Data: 22/10/2026</li>
+                      <li>👉 Código: HJRDG9</li>
+                    </ul>
+                    <time>10:11</time>
+                  </article>
+                  <div class="demo-sticker-wrap">
+                    <img class="demo-sticker" src="assets/figurinha-mais-uma-pra-conta.png" width="88" height="88" alt="">
+                  </div>
+                </div>
+
+                <div class="demo-cena" data-demo-cena="audio" style="--cena: 3">
+                  <div class="bolha bolha--eu bolha--audio">
+                    <b class="bolha__nome">Beto</b>
+                    <span class="audio audio--tocando"><span class="audio__play">▶</span><span class="audio__onda"></span><span>0:05</span></span>
+                    <time>09:08 ✓✓</time>
+                  </div>
+                  <article class="bolha bolha--ela demo-resposta">
+                    <b class="bolha__nome bolha__nome--ela" data-assistente>Dona Conta</b>
+                    <strong>Confirmação de Lançamento</strong>
+                    <p>✅ Sua despesa foi adicionada com sucesso. Atenção para não ultrapassar os gastos.</p>
+                    <ul>
+                      <li>✅ Tipo: Despesa</li>
+                      <li>📲 Descrição: Conta da geladeira</li>
+                      <li>💰 Valor: R$ 300,00</li>
+                      <li>📍 Categoria: Outros</li>
+                      <li>✅ Pagamento: À vista</li>
+                      <li>🗓️ Data: 18/10/2026</li>
+                      <li>👉 Código: Q3YPEC</li>
+                    </ul>
+                    <time>09:08</time>
+                  </article>
+                </div>
+
+                <div class="demo-cena" data-demo-cena="relatorio" style="--cena: 2">
+                  <article class="bolha bolha--ela demo-resposta demo-resposta--relatorio">
+                    <b class="bolha__nome bolha__nome--ela" data-assistente>Dona Conta</b>
+                    <span class="demo-relatorio-tag">☀️ Resumo diário automático · 08h</span>
+                    <strong>⚠️ Em atraso</strong>
+                    <p>· Conta de energia — R$ 98,90 · venceu 10/10 · W6F4VC</p>
+                    <p>Total: R$ 98,90<br>Se já pagou, responda: <b>paguei &lt;código&gt;</b></p>
+                    <strong>🚨 Metas estouradas</strong>
+                    <p>· Delivery — R$ 424,50 de R$ 200,00 (212%)</p>
+                    <time>08:00</time>
+                  </article>
+                </div>
+
+                <div class="demo-cena" data-demo-cena="meta" style="--cena: 1">
+                  <div class="bolha bolha--eu demo-texto">
+                    <b class="bolha__nome">Beto</b>
+                    Como está a meta de delivery?
+                    <time>05:56 ✓✓</time>
+                  </div>
+                  <article class="bolha bolha--ela demo-resposta demo-resposta--meta">
+                    <b class="bolha__nome bolha__nome--ela" data-assistente>Dona Conta</b>
+                    <strong>🎯 Metas de outubro</strong>
+                    <p><b>🔴 Delivery:</b> R$ 372,70 de R$ 200,00 (186%) · estourou em R$ 172,70</p>
+                    <p>A meta de delivery foi estourada, então é importante ficar atento aos gastos nessa categoria.</p>
+                    <time>05:56</time>
+                  </article>
+                </div>
+              </div>
+
+              <div class="demo-digitando">
+                <img src="assets/mascote.webp" width="24" height="24" alt="">
+                <span><span data-assistente>Dona Conta</span> está digitando</span>
+                <i></i><i></i><i></i>
+              </div>
             </div>
+
+            <div class="demo-compositor">
+              <span class="demo-compositor__mais">＋</span>
+              <span class="demo-compositor__campo">
+                <span class="demo-compositor__placeholder">Digite uma mensagem</span>
+                <span class="demo-compositor__digitado" data-demo-digitado></span><i class="demo-compositor__cursor"></i>
+                <span class="demo-gravacao">
+                  <i class="demo-gravacao__ponto"></i>
+                  <time data-demo-tempo-audio>0:00</time>
+                  <span class="demo-gravacao__onda" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+                  <b>gravando</b>
+                </span>
+              </span>
+              <span class="demo-compositor__acao">
+                <svg class="i demo-compositor__mic" aria-hidden="true"><use href="#i-mic"/></svg>
+                <span class="demo-compositor__enviar" aria-hidden="true">➤</span>
+              </span>
+            </div>
+            <div class="celular__home"></div>
           </div>
-          <figcaption>Conversa de exemplo</figcaption>
+
+          <div class="demo-etapas" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+          <figcaption>Simulação contínua · dados ilustrativos</figcaption>
         </figure>
       </div>
     </section>
@@ -115,7 +240,7 @@
     <section class="secao" id="dor">
       <div class="caixa caixa--estreita">
         <!-- EDITÁVEL -->
-        <h2>Você já baixou um app de finanças. Talvez três.</h2>
+        <h2>Você já baixou um app de finanças. <span class="titulo-destaque">Talvez três.</span></h2>
         <p class="lead">Na primeira semana você lançou tudo. Na segunda, esqueceu o almoço. Na terceira, o mercado. No fim do mês, o app mostrava metade da verdade, e você desistiu.</p>
         <!-- FIM EDITÁVEL -->
       </div>
@@ -132,7 +257,7 @@
     <section class="secao secao--creme" id="por-que">
       <div class="caixa caixa--estreita">
         <!-- EDITÁVEL -->
-        <h2>O problema não é você. É fazer sozinho.</h2>
+        <h2>O problema não é você. <span class="titulo-destaque">É fazer sozinho.</span></h2>
         <p class="lead">Todo app de registro, até os de WhatsApp, depende de uma pessoa só lembrar todo santo dia. Ninguém sustenta isso. Dieta, academia e finanças funcionam melhor quando alguém faz junto.</p>
         <!-- FIM EDITÁVEL -->
       </div>
@@ -161,7 +286,7 @@
     <!-- ============ 4. A VIRADA: O GRUPO ============ -->
     <section class="secao" id="virada">
       <div class="caixa">
-        <h2 class="centro">Por isso a <span data-assistente>Dona Conta</span> mora no grupo de vocês.</h2>
+        <h2 class="centro">Por isso a <span data-assistente>Dona Conta</span> <span class="titulo-destaque">mora no grupo de vocês.</span></h2>
         <div class="pilares">
           <div class="pilar">
             <span class="pilar__icone"><svg class="i" aria-hidden="true"><use href="#i-pessoas"/></svg></span>
@@ -195,7 +320,7 @@
     <!-- ============ 5. COMO FUNCIONA EM 3 PASSOS ============ -->
     <section class="secao secao--azul" id="como-funciona">
       <div class="caixa">
-        <h2 class="centro">Como funciona, em 3 passos</h2>
+        <h2 class="centro">Como funciona, <span class="titulo-destaque">em 3 passos</span></h2>
         <ol class="passos">
           <li>
             <span class="passos__num">1</span>
@@ -219,43 +344,6 @@
       </div>
     </section>
 
-    <!-- ============ 6. VEJA NA PRÁTICA ============ -->
-    <!-- Prints reais: salve os arquivos em assets/prints/ com estes nomes
-         (01-texto.webp, 02-audio.webp, 03-foto.webp, 04-pergunta.webp,
-         05-aviso-8h.webp, 06-resumo.webp) e ligue printsProntos no config.js. -->
-    <section class="secao" id="na-pratica">
-      <div class="caixa">
-        <h2 class="centro">Veja na prática</h2>
-        <p class="lead centro">É assim que fica o grupo de vocês.</p>
-        <div class="prints" tabindex="0" aria-label="Prints do grupo">
-          <figure class="print" data-print="01-texto">
-            <div class="print__marcador"><svg class="i" aria-hidden="true"><use href="#i-pergunta"/></svg>Print: lançamento por texto</div>
-            <figcaption>Escreveu como fala, ela lançou e mandou o código.</figcaption>
-          </figure>
-          <figure class="print" data-print="02-audio">
-            <div class="print__marcador"><svg class="i" aria-hidden="true"><use href="#i-mic"/></svg>Print: áudio transcrito</div>
-            <figcaption>Na correria, um áudio resolve.</figcaption>
-          </figure>
-          <figure class="print" data-print="03-foto">
-            <div class="print__marcador"><svg class="i" aria-hidden="true"><use href="#i-foto"/></svg>Print: foto da nota</div>
-            <figcaption>Foto da nota, e tá lançado.</figcaption>
-          </figure>
-          <figure class="print" data-print="04-pergunta">
-            <div class="print__marcador"><svg class="i" aria-hidden="true"><use href="#i-pergunta"/></svg>Print: “quanto gastamos com mercado este mês?”</div>
-            <figcaption>Pergunte, e a resposta vem na hora.</figcaption>
-          </figure>
-          <figure class="print" data-print="05-aviso-8h">
-            <div class="print__marcador"><svg class="i" aria-hidden="true"><use href="#i-sino"/></svg>Print: o aviso das 8h</div>
-            <figcaption>De manhã, os dois sabem o que vence.</figcaption>
-          </figure>
-          <figure class="print" data-print="06-resumo">
-            <div class="print__marcador"><svg class="i" aria-hidden="true"><use href="#i-resumo"/></svg>Print: o resumo de domingo</div>
-            <figcaption>No domingo, a semana inteira num resumo.</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
     <!-- ============ 7. UM DIA COM A ASSISTENTE ============ -->
     <section class="secao secao--creme" id="um-dia">
       <div class="caixa caixa--estreita">
@@ -275,7 +363,7 @@
     <!-- ============ 8. TUDO O QUE ELA FAZ ============ -->
     <section class="secao" id="recursos">
       <div class="caixa">
-        <h2 class="centro">Tudo o que ela faz</h2>
+        <h2 class="centro">Tudo o que <span class="titulo-destaque">ela faz</span></h2>
         <div class="recursos">
           <article class="recurso"><svg class="i" aria-hidden="true"><use href="#i-mic"/></svg><h3>Áudio e foto</h3><p>Na correria, manda um áudio. Tirou foto da nota? Pronto, tá lançado.</p></article>
           <article class="recurso"><svg class="i" aria-hidden="true"><use href="#i-etiqueta"/></svg><h3>Categoria sozinha</h3><p>Mercado vai para Alimentação sem você pensar.</p></article>
@@ -297,12 +385,117 @@
       </div>
     </section>
 
-    <!-- ============ 9. O PAINEL COMPLETO ============ -->
-    <!-- Print real: assets/prints/07-painel.webp (computador e celular) -->
+    <!-- ============ 9. O APP EM MOVIMENTO ============ -->
+    <section class="secao secao--produto" id="app-em-movimento" data-app-movimento>
+      <div class="caixa">
+        <div class="produto-cabecalho">
+          <span class="produto-selo"><i></i> Tudo conectado</span>
+          <h2>Você conversa no grupo. <span class="titulo-destaque">O app organiza o resto.</span></h2>
+          <p class="lead">Contas, cartões e compromissos deixam de ser telas paradas. Veja cada parte da vida financeira entrando no lugar.</p>
+        </div>
+
+        <div class="produto-grade">
+          <section class="produto-card produto-card--contas" id="contas-no-app" aria-labelledby="titulo-contas-no-app">
+            <div class="produto-card__visual" aria-hidden="true">
+              <span class="produto-orbita produto-orbita--um"></span>
+              <span class="produto-orbita produto-orbita--dois"></span>
+              <div class="conta-resumo">
+                <span class="conta-resumo__icone"><svg class="i"><use href="#i-conta"/></svg></span>
+                <div><small>Saldo total</small><strong>R$ 9.905,53</strong></div>
+                <span class="conta-resumo__status">Atualizado</span>
+              </div>
+              <div class="conta-fluxo conta-fluxo--entrada"><span>↗</span><small>Entradas</small><strong>R$ 16.770,00</strong></div>
+              <div class="conta-fluxo conta-fluxo--saida"><span>↘</span><small>Saídas</small><strong>R$ 6.864,47</strong></div>
+              <div class="conta-banco"><span class="conta-banco__marca">DC</span><div><b>Conta principal</b><small>Conta corrente · padrão</small></div><strong>R$ 9.905,53</strong></div>
+              <span class="produto-confirmacao"><b>✓</b> Conta adicionada</span>
+            </div>
+            <div class="produto-card__texto">
+              <span class="produto-card__numero">01</span>
+              <h3 id="titulo-contas-no-app">Suas contas bancárias, no mesmo lugar.</h3>
+              <p>Cadastre cada conta, acompanhe entradas e saídas e veja o saldo real da casa sem fazer conta de cabeça.</p>
+            </div>
+          </section>
+
+          <section class="produto-card produto-card--cartoes" id="cartoes-no-app" aria-labelledby="titulo-cartoes-no-app">
+            <div class="produto-card__visual" aria-hidden="true">
+              <span class="produto-orbita produto-orbita--um"></span>
+              <div class="cartao-credito">
+                <div class="cartao-credito__topo"><span class="cartao-chip"></span><span class="cartao-contactless">)))</span></div>
+                <span class="cartao-numero">••••&nbsp;&nbsp;4809</span>
+                <div class="cartao-credito__rodape"><b>Inter</b><strong>Mastercard</strong></div>
+              </div>
+              <div class="cartao-fatura">
+                <small>Fatura atual</small><strong>R$ 1.800,00</strong><span>vence 10 nov.</span>
+              </div>
+              <div class="cartao-limite"><div><span>Limite usado</span><b>100%</b></div><i><em></em></i><small>R$ 2.700,00 de R$ 2.000,00</small></div>
+              <span class="produto-alerta"><i>!</i> Limite ultrapassado</span>
+            </div>
+            <div class="produto-card__texto">
+              <span class="produto-card__numero">02</span>
+              <h3 id="titulo-cartoes-no-app">Cartão, fatura e parcelas sem surpresa.</h3>
+              <p>Cada compra entra na fatura certa. Limite, fechamento e vencimento ficam visíveis antes de virar problema.</p>
+            </div>
+          </section>
+
+          <section class="produto-card produto-card--agenda" id="agenda-no-app" aria-labelledby="titulo-agenda-no-app">
+            <div class="produto-card__visual" aria-hidden="true">
+              <span class="produto-orbita produto-orbita--dois"></span>
+              <div class="agenda-topo"><span><svg class="i"><use href="#i-agenda"/></svg></span><div><small>Outubro de 2026</small><strong>Agenda da casa</strong></div><b>+ Novo</b></div>
+              <div class="agenda-dias">
+                <span><small>QUI</small><b>22</b><em>Hoje</em></span>
+                <span><small>SEX</small><b>23</b></span>
+                <span><small>SÁB</small><b>24</b></span>
+                <span><small>DOM</small><b>25</b></span>
+                <span class="is-destaque"><small>SEG</small><b>26</b><i></i></span>
+              </div>
+              <div class="agenda-evento"><time>10:00</time><span><b>Reunião com o cliente</b><small>Compromisso compartilhado</small></span><em>30 min</em></div>
+              <div class="agenda-lembrete"><span>🔔</span><div><small>Lembrete criado</small><b>30 minutos antes</b></div><i>✓</i></div>
+            </div>
+            <div class="produto-card__texto">
+              <span class="produto-card__numero">03</span>
+              <h3 id="titulo-agenda-no-app">A agenda que lembra vocês dois.</h3>
+              <p>Compromissos e vencimentos ganham dia, hora e aviso. O que foi combinado no grupo aparece organizado no app.</p>
+            </div>
+          </section>
+        </div>
+
+        <section class="dashboard-vivo" id="dashboard-animado" aria-labelledby="titulo-dashboard-animado">
+          <div class="dashboard-vivo__topo">
+            <div><span class="produto-selo"><i></i> Dashboard ao vivo</span><h3 id="titulo-dashboard-animado">Os números importantes <span>se montam diante de você.</span></h3></div>
+            <span class="dashboard-vivo__periodo">Este mês <b>⌄</b></span>
+          </div>
+          <div class="dashboard-vivo__grade">
+            <div class="saude-viva">
+              <div class="saude-viva__anel"><span><strong>66</strong><small>/100</small></span></div>
+              <div><small>Sua saúde financeira</small><strong>Atenção</strong><p>Você guardou <b>30%</b> da receita neste mês.</p></div>
+            </div>
+            <div class="metricas-vivas">
+              <div><span class="metrica-icone metrica-icone--azul">▣</span><small>Saldo atual</small><strong>R$ 9.905,53</strong></div>
+              <div><span class="metrica-icone metrica-icone--verde">↗</span><small>Receitas</small><strong>R$ 7.100,00</strong></div>
+              <div><span class="metrica-icone metrica-icone--vermelho">↘</span><small>Despesas</small><strong>R$ 4.937,09</strong></div>
+            </div>
+            <div class="grafico-vivo">
+              <div class="grafico-vivo__titulo"><span><b>Evolução financeira</b><small>Receitas, despesas e saldo</small></span><strong>+ R$ 2.162,91</strong></div>
+              <div class="grafico-vivo__area"><i style="--h:34%"></i><i style="--h:52%"></i><i style="--h:45%"></i><i style="--h:68%"></i><i style="--h:58%"></i><i style="--h:82%"></i><i style="--h:74%"></i><svg viewBox="0 0 520 120" preserveAspectRatio="none"><path d="M4 96 C62 88 77 44 132 57 S221 108 274 64 S365 18 410 45 S474 52 516 15"/></svg></div>
+            </div>
+            <div class="categorias-vivas">
+              <div class="categorias-vivas__titulo"><b>Para onde foi seu dinheiro</b><small>Maiores gastos no período</small></div>
+              <div><span>Outros <b>65%</b></span><i><em style="--w:65%"></em></i><strong>R$ 3.216,89</strong></div>
+              <div><span>Moradia <b>9%</b></span><i><em style="--w:29%"></em></i><strong>R$ 437,90</strong></div>
+              <div><span>Delivery <b>9%</b></span><i><em style="--w:27%"></em></i><strong>R$ 424,50</strong></div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- ============ 10. O PAINEL COMPLETO ============ -->
     <section class="secao secao--creme" id="painel">
       <div class="caixa painel">
-        <div class="painel__texto">
-          <h2>No WhatsApp é conversa. No painel, a visão completa.</h2>
+        <div class="painel__cabecalho">
+          <div class="painel__texto">
+          <h2>No WhatsApp é conversa. <span class="titulo-destaque">No painel, a visão completa.</span></h2>
+          <p class="lead">A conversa vira organização: saldos, gastos, metas e relatórios reunidos em um painel simples de entender.</p>
           <ul class="lista-check">
             <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Nota de saúde financeira, de 0 a 100.</li>
             <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Para onde foi seu dinheiro, por categoria e por pessoa.</li>
@@ -310,10 +503,35 @@
             <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Relatórios em PDF e Excel.</li>
           </ul>
           <p class="painel__app"><svg class="i" aria-hidden="true"><use href="#i-celular"/></svg>Instale na tela do celular como um app.</p>
+          </div>
+
+          <div class="painel__destaques" aria-label="Destaques do painel">
+            <div><strong>0–100</strong><span>Saúde financeira</span></div>
+            <div><strong>Ao vivo</strong><span>Dados do casal</span></div>
+            <div><strong>1 clique</strong><span>PDF e Excel</span></div>
+          </div>
         </div>
-        <figure class="print print--largo" data-print="07-painel">
-          <div class="print__marcador"><svg class="i" aria-hidden="true"><use href="#i-resumo"/></svg>Print: o painel no computador e no celular</div>
-        </figure>
+
+        <div class="tour-app" data-tour-app>
+          <div class="tour-app__abas" role="tablist" aria-label="Conheça o painel da Dona Conta">
+            <button class="tour-app__aba is-active" type="button" role="tab" aria-selected="true" aria-controls="tour-app-tela" data-app-src="assets/app-dashboard.jpg" data-app-alt="Dashboard da Dona Conta com nota de saúde financeira, saldos, receitas e despesas" data-app-legenda="Dashboard">Dashboard</button>
+            <button class="tour-app__aba" type="button" role="tab" aria-selected="false" aria-controls="tour-app-tela" tabindex="-1" data-app-src="assets/app-relatorios.jpg" data-app-alt="Relatórios da Dona Conta com receitas, despesas, saldo e análise por categoria" data-app-legenda="Relatórios">Relatórios</button>
+            <button class="tour-app__aba" type="button" role="tab" aria-selected="false" aria-controls="tour-app-tela" tabindex="-1" data-app-src="assets/app-metas.jpg" data-app-alt="Metas e limites da Dona Conta com acompanhamento por categoria" data-app-legenda="Metas e limites">Metas</button>
+          </div>
+
+          <figure class="tour-app__janela" id="tour-app-tela" role="tabpanel">
+            <div class="tour-app__topo" aria-hidden="true">
+              <span class="tour-app__pontos"><i></i><i></i><i></i></span>
+              <span class="tour-app__endereco">app.donaconta.com.br</span>
+              <span class="tour-app__status"><i></i> ao vivo</span>
+            </div>
+            <div class="tour-app__viewport">
+              <img src="assets/app-dashboard.jpg" width="1351" height="571" alt="Dashboard da Dona Conta com nota de saúde financeira, saldos, receitas e despesas" loading="lazy" decoding="async" data-tour-imagem>
+              <span class="tour-app__reflexo" aria-hidden="true"></span>
+            </div>
+            <figcaption><span data-tour-legenda>Dashboard</span> — uma visão clara da vida financeira da casa.</figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 
@@ -322,7 +540,7 @@
       <div class="caixa">
         <div class="para-quem">
           <div class="para-quem__lado">
-            <h2>É para</h2>
+            <h2>É <span class="titulo-destaque">para</span></h2>
             <ul class="lista-check">
               <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Casais que dividem as contas.</li>
               <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Famílias.</li>
@@ -331,7 +549,7 @@
             </ul>
           </div>
           <div class="para-quem__lado para-quem__lado--nao">
-            <h2>Não é para</h2>
+            <h2>Não é <span class="titulo-destaque">para</span></h2>
             <ul class="lista-x">
               <li><svg class="i" aria-hidden="true"><use href="#i-x"/></svg>Quem quer controlar investimentos.</li>
               <li><svg class="i" aria-hidden="true"><use href="#i-x"/></svg>Quem quer conectar o banco e não lançar nada.</li>
@@ -362,7 +580,7 @@
     <!-- ============ 12. OFERTA E PREÇO ============ -->
     <section class="secao secao--azul" id="planos">
       <div class="caixa">
-        <h2 class="centro">Comece hoje, sem risco</h2>
+        <h2 class="centro">Comece hoje, <span class="titulo-destaque">sem risco</span></h2>
         <div class="oferta">
           <div class="pilha">
             <h3>O que vocês recebem</h3>
@@ -395,7 +613,7 @@
     <!-- ============ 13. PERGUNTAS FREQUENTES ============ -->
     <section class="secao" id="perguntas">
       <div class="caixa caixa--estreita">
-        <h2>Perguntas frequentes</h2>
+        <h2>Perguntas <span class="titulo-destaque">frequentes</span></h2>
         <!-- EDITÁVEL: perguntas e respostas -->
         <div class="faq">
           <details><summary>Já tentei app e larguei. Por que agora seria diferente?</summary><p>Você largou porque estava sozinho. No grupo, um lembra o outro, e a <span data-assistente>Dona Conta</span> lembra os dois.</p></details>
@@ -418,7 +636,7 @@
     <section class="secao secao--final" id="final">
       <div class="caixa caixa--estreita centro">
         <img src="assets/mascote.webp" width="120" height="120" alt="" class="final__mascote" loading="lazy">
-        <h2>Daqui a 30 dias vocês vão saber para onde foi cada real. Juntos.</h2>
+        <h2>Daqui a 30 dias vocês vão saber para onde foi cada real. <span class="titulo-destaque">Juntos.</span></h2>
         <div class="cta cta--centro">
           <a class="btn btn--destaque btn--grande" href="https://app.donaconta.com.br/assinar/familia" data-assinar data-cta-texto>Começar teste grátis</a>
           <p class="cta__nota" data-cta-nota>Sem cartão. Pronto em 2 minutos.</p>
