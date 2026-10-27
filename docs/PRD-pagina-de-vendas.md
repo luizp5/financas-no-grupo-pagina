@@ -158,7 +158,7 @@ São 14 seções, nesta ordem. A copy é um modelo. `{marca}` e `{assistente}` v
 
 - **Formato:** grade de 9 a 12 cartões, cada um com benefício + uma linha.
 - **Fonte:** a coluna "Como falar na página" do mapa do produto, acima.
-- **Ordem:** áudio e foto, categoria sozinha, cartões e parcelas, contas a pagar e baixa, perguntas, quem lançou, corrigir falando, metas que avisam antes, agenda e lembretes.
+- **Ordem (9 cartões, 3x3):** áudio e foto, categoria automática, cartões e parcelas, contas e vencimentos (aviso no dia + baixa), resumo da semana, pergunte no grupo (com o link do gráfico), quem lançou, metas que avisam antes, agenda e lembretes. "Corrigir falando" ficou só no FAQ.
 
 ### 9. O painel completo
 
