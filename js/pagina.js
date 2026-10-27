@@ -698,11 +698,14 @@
 
   /* ---------- Início ---------- */
 
+  // A página do white label usa este arquivo, mas não tem a seção de planos.
+  var temPlanos = !!document.querySelector('.planos');
+
   preencherTextos();
   ligarBotoes();
   estado.planos = planosDaReserva();
   estado.ciclo = 'monthly';
-  desenharPlanos();
+  if (temPlanos) desenharPlanos();
   ligarBarraFixa();
   ligarDemoConversas();
   ligarAppEmMovimento();
@@ -710,5 +713,5 @@
   ligarMovimentoVisual();
   ligarMedicao();
   carregarMarca();
-  carregarPlanos();
+  if (temPlanos) carregarPlanos();
 })();

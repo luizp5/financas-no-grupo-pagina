@@ -1,0 +1,907 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- EDITÁVEL: título e descrição que aparecem no Google e no WhatsApp -->
+  <title>White Label Dona Conta: o seu app de finanças no WhatsApp</title>
+  <meta name="description" content="Tenha o seu próprio app de finanças no WhatsApp, com a sua marca e os seus planos. Um assistente com IA que vive no grupo da família e cobra os seus clientes sozinho.">
+  <meta name="theme-color" content="#061440">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Dona Conta">
+  <meta property="og:title" content="Lance o seu próprio app de finanças no WhatsApp">
+  <meta property="og:description" content="Sua marca, seus planos, sua receita recorrente. Assistente com IA no grupo da família, checkout e grupos automáticos.">
+  <meta property="og:url" content="https://donaconta.com.br/whitelabel/">
+  <meta property="og:image" content="https://donaconta.com.br/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://donaconta.com.br/whitelabel/">
+  <!-- FIM EDITÁVEL -->
+
+  <link rel="icon" href="/assets/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@72,800&family=Inter:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="/css/estilo.css?v=20261026-2">
+  <link rel="stylesheet" href="/css/whitelabel.css?v=20261026-3">
+
+  <script src="/config.js"></script>
+  <script src="/whitelabel/config.js"></script>
+  <script src="/js/pagina.js?v=20261026-1" defer></script>
+  <script src="/js/whitelabel.js?v=20261026-3" defer></script>
+</head>
+<body class="wl">
+  <!-- Ícones usados na página (desenho de linha, herdam a cor do texto) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></symbol>
+      <symbol id="i-foto" viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></symbol>
+      <symbol id="i-cartao" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h4"/></symbol>
+      <symbol id="i-conta" viewBox="0 0 24 24"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></symbol>
+      <symbol id="i-pergunta" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M10 9a2 2 0 1 1 2.5 1.9c-.3.1-.5.4-.5.7V12M12 14.2v.1"/></symbol>
+      <symbol id="i-pessoas" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14a5 5 0 0 1 5 5"/></symbol>
+      <symbol id="i-meta" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r=".8"/></symbol>
+      <symbol id="i-agenda" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></symbol>
+      <symbol id="i-sino" viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 20a2 2 0 0 0 4 0"/></symbol>
+      <symbol id="i-sincronia" viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 14-5.3L20 9M20 4v5h-5"/><path d="M20 12a8 8 0 0 1-14 5.3L4 15M4 20v-5h5"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+      <symbol id="i-cadeado" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+      <symbol id="i-celular" viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2"/><path d="M11 18.5h2"/></symbol>
+      <symbol id="i-grupos" viewBox="0 0 24 24"><rect x="3" y="4" width="8" height="7" rx="2"/><rect x="13" y="4" width="8" height="7" rx="2"/><rect x="8" y="13" width="8" height="7" rx="2"/></symbol>
+      <symbol id="i-servidor" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="7" rx="2"/><rect x="4" y="13" width="16" height="7" rx="2"/><path d="M8 7.5h.01M8 16.5h.01"/></symbol>
+      <symbol id="i-escudo" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+      <symbol id="i-rodizio" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></symbol>
+      <symbol id="i-globo" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></symbol>
+      <symbol id="i-pulso" viewBox="0 0 24 24"><path d="M3 12h4l3-7 4 14 3-7h4"/></symbol>
+      <symbol id="i-documento" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></symbol>
+      <symbol id="i-chave" viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M16 7l3 3"/></symbol>
+      <symbol id="i-atualizar" viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.3-5.7L20 8.6M20 3v5.6h-5.6"/></symbol>
+      <symbol id="i-dinheiro" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 9v.01M18 15v.01"/></symbol>
+      <symbol id="i-curso" viewBox="0 0 24 24"><path d="M3 9l9-4 9 4-9 4z"/><path d="M7 11v4c0 1.5 2.2 3 5 3s5-1.5 5-3v-4"/></symbol>
+      <symbol id="i-alvo" viewBox="0 0 24 24"><path d="M4 20l6-6M14 4l6 6-8 8-6-6z"/></symbol>
+      <symbol id="i-calculadora" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 12h.01M12 12h.01M16 12h.01M8 16h.01M12 16h.01M16 16h.01"/></symbol>
+      <symbol id="i-foguete" viewBox="0 0 24 24"><path d="M12 15l-3-3c1.5-4.5 4.5-8 10-9-1 5.5-4.5 8.5-9 10z"/><path d="M9 12l-4 1-2 4 4-1M12 15l-1 4-4 2 1-4"/></symbol>
+      <symbol id="i-comunidade" viewBox="0 0 24 24"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.6-7 10-7 10z"/></symbol>
+    </defs>
+  </svg>
+
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="topo">
+    <div class="caixa topo__linha">
+      <a class="topo__marca" href="/" aria-label="Dona Conta, página inicial">
+        <img class="logo" src="/assets/logo-escuro.webp" width="418" height="96" alt="Dona Conta" data-logo="escuro">
+      </a>
+      <a class="topo__entrar" href="#oferta">Ver a oferta</a>
+    </div>
+  </header>
+
+  <main id="conteudo">
+
+    <!-- ================================================================
+         ATO 1: O PRODUTO QUE A FAMÍLIA USA
+         ================================================================ -->
+
+    <!-- ============ 1. HERO ============ -->
+    <section class="hero" id="topo">
+      <div class="caixa hero__grade">
+        <div class="hero__texto">
+          <!-- EDITÁVEL: headline e subtítulo (variações para teste A/B no PRD) -->
+          <p class="selo">White label · Sua marca</p>
+          <h1>Lance o seu próprio app de finanças no WhatsApp. <span>Sua marca, seus planos, sua receita recorrente.</span></h1>
+          <p class="hero__sub">Um assistente com IA que vive no grupo do WhatsApp da família, registra gastos por texto, áudio e foto, e cobra os seus clientes sozinho. Pronto para vender com o seu nome.</p>
+          <!-- FIM EDITÁVEL -->
+          <div class="cta wl-cta-dupla">
+            <a class="btn btn--primario btn--grande" href="#oferta" data-comprar>Quero ter o meu app</a>
+            <a class="btn btn--fantasma btn--grande" href="#demonstracao" data-demo>Ver a demonstração</a>
+          </div>
+          <p class="cta__nota">A mensalidade dos seus clientes cai direto na sua conta Asaas.</p>
+          <ul class="hero__provas" aria-label="Vantagens">
+            <li>Sem programar</li>
+            <li>Grupo criado sozinho</li>
+            <li>Instalação própria</li>
+          </ul>
+        </div>
+
+        <div class="wl-hero-visual">
+          <!-- Demonstração animada (mesma da página do cliente final); dados ilustrativos. -->
+          <figure class="celular celular--demo" aria-label="Demonstração animada: uma pessoa envia mensagens no grupo e a assistente registra, responde e envia alertas">
+            <div class="celular__luz" aria-hidden="true"></div>
+            <span class="celular__botao celular__botao--silencio" aria-hidden="true"></span>
+            <span class="celular__botao celular__botao--volume-a" aria-hidden="true"></span>
+            <span class="celular__botao celular__botao--volume-b" aria-hidden="true"></span>
+            <span class="celular__botao celular__botao--energia" aria-hidden="true"></span>
+
+            <div class="celular__tela" aria-hidden="true">
+              <div class="celular__status">
+                <time>9:41</time>
+                <span class="celular__status-icones">
+                  <i class="celular__sinal"></i>
+                  <i class="celular__wifi"></i>
+                  <i class="celular__bateria"></i>
+                </span>
+              </div>
+              <div class="celular__notch"><i></i></div>
+              <div class="zap__topo">
+                <span class="zap__voltar">‹</span>
+                <img src="/assets/mascote.webp" width="40" height="40" alt="" class="zap__avatar">
+                <div class="zap__grupo">
+                  <strong>Minhas finanças</strong>
+                  <span>Ana, Beto, <span data-assistente>Dona Conta</span></span>
+                </div>
+                <span class="zap__acoes">⌕ ···</span>
+              </div>
+
+              <div class="zap__conversa demo-chat">
+                <span class="demo-data">Hoje</span>
+                <div class="demo-cenas">
+                  <div class="demo-feed" data-demo-feed aria-live="polite" aria-label="Histórico da conversa"></div>
+                  <div class="demo-cena" data-demo-cena="receita" style="--cena: 0">
+                    <div class="bolha bolha--eu demo-texto">
+                      <b class="bolha__nome">Ana</b>
+                      Recebi 1550,00 pela criação de um site
+                      <time>10:11 ✓✓</time>
+                    </div>
+                    <article class="bolha bolha--ela demo-resposta">
+                      <b class="bolha__nome bolha__nome--ela" data-assistente>Dona Conta</b>
+                      <strong>Confirmação de Lançamento</strong>
+                      <p>✅ Sua receita foi adicionada com sucesso. Parabéns por mais essa receita!</p>
+                      <ul>
+                        <li>✅ Tipo: Receita</li>
+                        <li>📲 Descrição: Recebimento pela criação de um site</li>
+                        <li>💰 Valor: R$ 1.550,00</li>
+                        <li>📍 Categoria: Renda extra</li>
+                        <li>🗓️ Data: 22/10/2026</li>
+                        <li>👉 Código: HJRDG9</li>
+                      </ul>
+                      <time>10:11</time>
+                    </article>
+                    <div class="demo-sticker-wrap">
+                      <img class="demo-sticker" src="/assets/figurinha-mais-uma-pra-conta.png" width="88" height="88" alt="">
+                    </div>
+                  </div>
+
+                  <div class="demo-cena" data-demo-cena="audio" style="--cena: 3">
+                    <div class="bolha bolha--eu bolha--audio">
+                      <b class="bolha__nome">Beto</b>
+                      <span class="audio audio--tocando"><span class="audio__play">▶</span><span class="audio__onda"></span><span>0:05</span></span>
+                      <time>09:08 ✓✓</time>
+                    </div>
+                    <article class="bolha bolha--ela demo-resposta">
+                      <b class="bolha__nome bolha__nome--ela" data-assistente>Dona Conta</b>
+                      <strong>Confirmação de Lançamento</strong>
+                      <p>✅ Sua despesa foi adicionada com sucesso. Atenção para não ultrapassar os gastos.</p>
+                      <ul>
+                        <li>✅ Tipo: Despesa</li>
+                        <li>📲 Descrição: Conta da geladeira</li>
+                        <li>💰 Valor: R$ 300,00</li>
+                        <li>📍 Categoria: Outros</li>
+                        <li>✅ Pagamento: À vista</li>
+                        <li>🗓️ Data: 18/10/2026</li>
+                        <li>👉 Código: Q3YPEC</li>
+                      </ul>
+                      <time>09:08</time>
+                    </article>
+                  </div>
+
+                  <div class="demo-cena" data-demo-cena="relatorio" style="--cena: 2">
+                    <article class="bolha bolha--ela demo-resposta demo-resposta--relatorio">
+                      <b class="bolha__nome bolha__nome--ela" data-assistente>Dona Conta</b>
+                      <span class="demo-relatorio-tag">☀️ Resumo diário automático · 08h</span>
+                      <strong>⚠️ Em atraso</strong>
+                      <p>· Conta de energia — R$ 98,90 · venceu 10/10 · W6F4VC</p>
+                      <p>Total: R$ 98,90<br>Se já pagou, responda: <b>paguei &lt;código&gt;</b></p>
+                      <strong>🚨 Metas estouradas</strong>
+                      <p>· Delivery — R$ 424,50 de R$ 200,00 (212%)</p>
+                      <time>08:00</time>
+                    </article>
+                  </div>
+
+                  <div class="demo-cena" data-demo-cena="meta" style="--cena: 1">
+                    <div class="bolha bolha--eu demo-texto">
+                      <b class="bolha__nome">Beto</b>
+                      Como está a meta de delivery?
+                      <time>05:56 ✓✓</time>
+                    </div>
+                    <article class="bolha bolha--ela demo-resposta demo-resposta--meta">
+                      <b class="bolha__nome bolha__nome--ela" data-assistente>Dona Conta</b>
+                      <strong>🎯 Metas de outubro</strong>
+                      <p><b>🔴 Delivery:</b> R$ 372,70 de R$ 200,00 (186%) · estourou em R$ 172,70</p>
+                      <p>A meta de delivery foi estourada, então é importante ficar atento aos gastos nessa categoria.</p>
+                      <time>05:56</time>
+                    </article>
+                  </div>
+                </div>
+
+                <div class="demo-digitando">
+                  <img src="/assets/mascote.webp" width="24" height="24" alt="">
+                  <span><span data-assistente>Dona Conta</span> está digitando</span>
+                  <i></i><i></i><i></i>
+                </div>
+              </div>
+
+              <div class="demo-compositor">
+                <span class="demo-compositor__mais">＋</span>
+                <span class="demo-compositor__campo">
+                  <span class="demo-compositor__placeholder">Digite uma mensagem</span>
+                  <span class="demo-compositor__digitado" data-demo-digitado></span><i class="demo-compositor__cursor"></i>
+                  <span class="demo-gravacao">
+                    <i class="demo-gravacao__ponto"></i>
+                    <time data-demo-tempo-audio>0:00</time>
+                    <span class="demo-gravacao__onda" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+                    <b>gravando</b>
+                  </span>
+                </span>
+                <span class="demo-compositor__acao">
+                  <svg class="i demo-compositor__mic" aria-hidden="true"><use href="#i-mic"/></svg>
+                  <span class="demo-compositor__enviar" aria-hidden="true">➤</span>
+                </span>
+              </div>
+              <div class="celular__home"></div>
+            </div>
+
+            <div class="demo-etapas" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+            <figcaption>Simulação contínua · dados ilustrativos</figcaption>
+          </figure>
+
+          <!-- O lado do negócio: avisos do painel do comprador (ilustrativos) -->
+          <div class="wl-avisos" aria-hidden="true">
+            <div class="wl-aviso wl-aviso--pago"><span>💰</span><div><b>Pagamento aprovado</b><small>R$ 29,90 · Pix Automático</small></div></div>
+            <div class="wl-aviso wl-aviso--grupo"><span>✅</span><div><b>Grupo criado sozinho</b><small>Minhas finanças · 3 pessoas</small></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 2. FAIXA DE NÚMEROS ============ -->
+    <section class="wl-numeros" aria-label="O produto em números">
+      <div class="caixa">
+        <ul>
+          <li><strong>7</strong><span>agentes de IA</span></li>
+          <li><strong>20</strong><span>recursos liberáveis por plano</span></li>
+          <li><strong>11</strong><span>telas no portal do cliente</span></li>
+          <li><strong>107</strong><span>mensagens editáveis</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 3. O PROBLEMA ============ -->
+    <section class="secao" id="problema">
+      <div class="caixa caixa--estreita">
+        <h2>Todo mundo já baixou um app de finanças. <span class="titulo-destaque">Quase ninguém usa depois do primeiro mês.</span></h2>
+        <p class="lead">E app que ninguém usa não renova assinatura. O abandono é o que mata a receita recorrente de qualquer app de finanças.</p>
+      </div>
+      <div class="caixa">
+        <ul class="sintomas">
+          <li>A pessoa lança tudo na primeira semana, esquece na segunda e desiste na terceira.</li>
+          <li>Os apps de WhatsApp resolvem metade: a conversa é individual, e o casal continua sem saber o que o outro gastou.</li>
+          <li>Sem uso, não há renovação. Sem renovação, não há negócio.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 4. OS CAMINHOS ============ -->
+    <section class="secao secao--creme" id="caminhos">
+      <div class="caixa">
+        <h2 class="centro">Três jeitos de ter um app de finanças. <span class="titulo-destaque">Dois deles custam caro.</span></h2>
+        <div class="wl-caminhos">
+          <article class="wl-caminho">
+            <h3>Construir do zero</h3>
+            <ul class="lista-x">
+              <li><svg class="i" aria-hidden="true"><use href="#i-x"/></svg>Meses de desenvolvimento e dezenas de milhares de reais antes do primeiro cliente.</li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-x"/></svg>Ainda falta checkout, cobrança, WhatsApp, IA e LGPD.</li>
+            </ul>
+          </article>
+          <article class="wl-caminho">
+            <h3>Revender um app comum</h3>
+            <ul class="lista-x">
+              <li><svg class="i" aria-hidden="true"><use href="#i-x"/></svg>A família baixa, esquece de abrir e cancela.</li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-x"/></svg>A marca é de outro, e o cliente também.</li>
+            </ul>
+          </article>
+          <article class="wl-caminho wl-caminho--certo">
+            <h3>Licenciar o <span data-marca>Dona Conta</span></h3>
+            <ul class="lista-check">
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Produto pronto, com a sua marca em dias.</li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Mora no grupo da família, que é onde ela não esquece.</li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Cobrança, grupos e IA já funcionando.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 5. O MECANISMO ============ -->
+    <section class="secao" id="mecanismo">
+      <div class="caixa">
+        <h2 class="centro">Não é mais um app. <span class="titulo-destaque">É um assistente no grupo que a família já abre o dia inteiro.</span></h2>
+        <div class="pilares wl-pilares--4">
+          <div class="pilar">
+            <span class="pilar__icone"><svg class="i" aria-hidden="true"><use href="#i-celular"/></svg></span>
+            <h3>Zero atrito</h3>
+            <p>Não tem app novo para lembrar de abrir. O WhatsApp já está aberto o dia todo.</p>
+          </div>
+          <div class="pilar">
+            <span class="pilar__icone"><svg class="i" aria-hidden="true"><use href="#i-pessoas"/></svg></span>
+            <h3>Finança a dois (ou a cinco)</h3>
+            <p>Todos lançam no mesmo lugar e veem o que o outro gastou, com o nome de quem lançou.</p>
+          </div>
+          <div class="pilar">
+            <span class="pilar__icone"><svg class="i" aria-hidden="true"><use href="#i-sincronia"/></svg></span>
+            <h3>Um lembra o outro</h3>
+            <p>A mensagem de um puxa o lançamento do outro. É isso que segura o cliente.</p>
+          </div>
+          <div class="pilar">
+            <span class="pilar__icone"><svg class="i" aria-hidden="true"><use href="#i-grupos"/></svg></span>
+            <h3>Uma conta, vários grupos</h3>
+            <p>Casa e negócio somando na mesma conta, conforme o plano.</p>
+          </div>
+        </div>
+
+        <!-- EDITÁVEL: história do fundador (fundador.mostrar: false no config.js da raiz tira) -->
+        <figure class="fundador" data-fundador>
+          <img class="fundador__foto" src="/assets/mascote.webp" width="120" height="120" alt="" data-fundador-foto>
+          <blockquote>
+            <p>“Eu testei os apps de WhatsApp e esquecia de lançar. Quando passei a lançar no grupo com a minha esposa, a gente parou de esquecer.”</p>
+            <footer data-fundador-nome>Guilherme, fundador</footer>
+          </blockquote>
+        </figure>
+        <!-- FIM EDITÁVEL -->
+      </div>
+    </section>
+
+    <!-- ============ 6. DEMONSTRAÇÃO EM CONVERSAS ============ -->
+    <section class="secao secao--creme" id="demonstracao">
+      <div class="caixa">
+        <h2 class="centro">Seu cliente fala como fala com qualquer pessoa. <span class="titulo-destaque">O assistente organiza.</span></h2>
+        <p class="lead centro">Texto, áudio ou foto do cupom. Os números saem do banco de dados; a IA só escreve a resposta, então ela não inventa valores.</p>
+        <!-- Conversas ilustrativas; troque por prints reais da instalação de demonstração quando existirem. -->
+        <div class="wl-cenas">
+          <figure class="wl-cena">
+            <figcaption><svg class="i" aria-hidden="true"><use href="#i-conta"/></svg>Texto</figcaption>
+            <div class="wl-zap">
+              <p class="bolha bolha--eu"><b class="bolha__nome">Ana</b>gastei 45,90 no almoço</p>
+              <p class="bolha"><b class="bolha__nome bolha__nome--ela" data-assistente>Dona Conta</b>✅ Despesa lançada<br>🍽️ Almoço · R$ 45,90<br>📍 Alimentação · hoje<br>👉 Código: GF8656</p>
+            </div>
+          </figure>
+          <figure class="wl-cena">
+            <figcaption><svg class="i" aria-hidden="true"><use href="#i-mic"/></svg>Áudio</figcaption>
+            <div class="wl-zap">
+              <p class="bolha bolha--eu"><b class="bolha__nome">Beto</b><span class="audio"><span class="audio__play">▶</span><span class="audio__onda"></span><span>0:07</span></span></p>
+              <p class="bolha"><b class="bolha__nome bolha__nome--ela" data-assistente>Dona Conta</b>✅ Mercado · R$ 212,40<br>📍 Alimentação<br>💳 Cartão Nubank, fatura de novembro</p>
+            </div>
+            <p class="wl-cena__nota">Transcrito em português. Dá para fazer tudo por voz.</p>
+          </figure>
+          <figure class="wl-cena">
+            <figcaption><svg class="i" aria-hidden="true"><use href="#i-foto"/></svg>Foto do cupom</figcaption>
+            <div class="wl-zap">
+              <p class="bolha bolha--eu"><b class="bolha__nome">Ana</b>📷 Foto do cupom da farmácia</p>
+              <p class="bolha"><b class="bolha__nome bolha__nome--ela" data-assistente>Dona Conta</b>Li 3 itens no cupom:<br>· Remédio · R$ 38,90<br>· Protetor solar · R$ 54,00<br>· Escova de dente · R$ 12,50<br>✅ Lancei os 3 em Saúde.</p>
+            </div>
+            <p class="wl-cena__nota">Leitura duvidosa vira pergunta antes de gravar.</p>
+          </figure>
+          <figure class="wl-cena">
+            <figcaption><svg class="i" aria-hidden="true"><use href="#i-cartao"/></svg>Parcelado</figcaption>
+            <div class="wl-zap">
+              <p class="bolha bolha--eu"><b class="bolha__nome">Beto</b>comprei TV 3000 em 10x no Nubank</p>
+              <p class="bolha"><b class="bolha__nome bolha__nome--ela" data-assistente>Dona Conta</b>✅ TV · 10x de R$ 300,00<br>💳 Cartão Nubank<br>Cada parcela na fatura do seu mês, a 1ª em novembro.</p>
+            </div>
+          </figure>
+          <figure class="wl-cena">
+            <figcaption><svg class="i" aria-hidden="true"><use href="#i-pergunta"/></svg>Pergunta por pessoa</figcaption>
+            <div class="wl-zap">
+              <p class="bolha bolha--eu"><b class="bolha__nome">Beto</b>quanto a Maria gastou este mês?</p>
+              <p class="bolha"><b class="bolha__nome bolha__nome--ela" data-assistente>Dona Conta</b>📊 Maria lançou R$ 1.284,30 em outubro.<br>Maior gasto: Mercado, R$ 486,20.<br>🔗 Ver no app</p>
+            </div>
+          </figure>
+          <figure class="wl-cena">
+            <figcaption><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Baixa de conta</figcaption>
+            <div class="wl-zap">
+              <p class="bolha bolha--eu"><b class="bolha__nome">Ana</b>paguei o W6F4VC</p>
+              <p class="bolha"><b class="bolha__nome bolha__nome--ela" data-assistente>Dona Conta</b>✅ Conta de energia · R$ 98,90<br>Marcada como paga hoje.</p>
+            </div>
+          </figure>
+        </div>
+        <p class="wl-legenda">Conversas ilustrativas, com dados fictícios.</p>
+        <div class="cta cta--centro">
+          <a class="btn btn--primario btn--grande" href="#oferta" data-comprar>Quero ter o meu app</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 7. O QUE ACONTECE SOZINHO ============ -->
+    <section class="secao" id="automatico">
+      <div class="caixa caixa--estreita">
+        <h2>Seu cliente não precisa lembrar do app. <span class="titulo-destaque">O app lembra dele.</span></h2>
+        <p class="lead">O assistente fala no grupo na hora certa, e só quando tem algo útil a dizer. É isso que mantém a família usando e a assinatura paga.</p>
+        <ol class="linha-tempo">
+          <li><time>08h</time><p><span class="msg">☀️ Bom dia! Vence hoje: internet R$ 99,90. Se já pagou, responda <b>paguei &lt;código&gt;</b>.</span></p></li>
+          <li><time>12h</time><p><span class="msg">⚠️ Alimentação: R$ 820 de R$ 1.000 (82%). Restam R$ 180.</span></p></li>
+          <li><time>14h</time><p><span class="msg">⏰ Lembrete: consulta hoje, 15:00, no Hospital X.</span></p></li>
+          <li><time>19h</time><p><span class="msg">🔔 Vence amanhã: cartão Nubank.</span></p></li>
+          <li><time>Dom.</time><p><span class="msg">📊 Resumo da semana: quanto entrou, quanto saiu, o maior gasto e o que vence. E uma figurinha para fechar.</span></p></li>
+        </ol>
+        <p class="fecho">Avisos só saem quando há o que dizer, no máximo um por dia de cada tipo.</p>
+      </div>
+    </section>
+
+    <!-- ============ 8. PORTAL DO CLIENTE ============ -->
+    <section class="secao secao--creme" id="painel">
+      <div class="caixa painel">
+        <div class="painel__cabecalho">
+          <div class="painel__texto">
+            <h2>O grupo é onde a família lança. <span class="titulo-destaque">O portal é onde ela enxerga tudo.</span></h2>
+            <p class="lead">São 11 telas com a sua marca, em tema claro e escuro. Os números do portal e da conversa saem do mesmo motor, então nunca se contradizem.</p>
+            <ul class="lista-check">
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Nota de saúde financeira, de 0 a 100, com o cálculo explicado.</li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Contas, cartões, faturas, metas, recorrentes e parcelamentos.</li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Relatórios com exportação em CSV, PDF e Excel.</li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Tela fora do plano vira convite para subir de plano.</li>
+            </ul>
+            <p class="painel__app"><svg class="i" aria-hidden="true"><use href="#i-celular"/></svg>Instala como app no Android, iPhone e computador, sem loja.</p>
+          </div>
+
+          <div class="painel__destaques" aria-label="Destaques do portal">
+            <div><strong>11</strong><span>Telas com a sua marca</span></div>
+            <div><strong>0–100</strong><span>Saúde financeira</span></div>
+            <div><strong>Sem loja</strong><span>Instala como app</span></div>
+          </div>
+        </div>
+
+        <div class="tour-app" data-tour-app>
+          <div class="tour-app__abas" role="tablist" aria-label="Conheça o portal do cliente">
+            <button class="tour-app__aba is-active" type="button" role="tab" aria-selected="true" aria-controls="tour-app-tela" data-app-src="/assets/app-dashboard.jpg" data-app-alt="Dashboard do portal com nota de saúde financeira, saldos, receitas e despesas" data-app-legenda="Dashboard">Dashboard</button>
+            <button class="tour-app__aba" type="button" role="tab" aria-selected="false" aria-controls="tour-app-tela" tabindex="-1" data-app-src="/assets/app-relatorios.jpg" data-app-alt="Relatórios do portal com receitas, despesas, saldo e análise por categoria" data-app-legenda="Relatórios">Relatórios</button>
+            <button class="tour-app__aba" type="button" role="tab" aria-selected="false" aria-controls="tour-app-tela" tabindex="-1" data-app-src="/assets/app-metas.jpg" data-app-alt="Metas e limites do portal com acompanhamento por categoria" data-app-legenda="Metas e limites">Metas</button>
+          </div>
+
+          <figure class="tour-app__janela" id="tour-app-tela" role="tabpanel">
+            <div class="tour-app__topo" aria-hidden="true">
+              <span class="tour-app__pontos"><i></i><i></i><i></i></span>
+              <span class="tour-app__endereco">app.suamarca.com.br</span>
+              <span class="tour-app__status"><i></i> ao vivo</span>
+            </div>
+            <div class="tour-app__viewport">
+              <img src="/assets/app-dashboard.jpg" width="1351" height="571" alt="Dashboard do portal com nota de saúde financeira, saldos, receitas e despesas" loading="lazy" decoding="async" data-tour-imagem>
+              <span class="tour-app__reflexo" aria-hidden="true"></span>
+            </div>
+            <figcaption><span data-tour-legenda>Dashboard</span>, com a marca de quem vende.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         ATO 2: O NEGÓCIO QUE VOCÊ OPERA
+         ================================================================ -->
+
+    <!-- ============ 9. A VIRADA ============ -->
+    <section class="secao secao--final wl-virada" id="virada">
+      <div class="caixa caixa--estreita centro">
+        <h2>Agora imagine tudo isso com o seu nome, <span class="titulo-destaque">cobrando os seus clientes todo mês.</span></h2>
+        <p class="lead centro">O cliente final nunca vê outra marca: nome, logo, cores, domínio, número do WhatsApp, nome do assistente, textos, termos e e-mails são seus.</p>
+      </div>
+    </section>
+
+    <!-- ============ 10. PARA QUEM É ============ -->
+    <section class="secao" id="para-quem">
+      <div class="caixa">
+        <h2 class="centro">Feito para quem já tem audiência <span class="titulo-destaque">ou carteira de clientes.</span></h2>
+        <p class="lead centro">E quer uma receita recorrente que não dependa de lançar um curso novo todo mês.</p>
+        <div class="recursos wl-perfis">
+          <article class="recurso"><svg class="i" aria-hidden="true"><use href="#i-curso"/></svg><h3>Educador financeiro e infoprodutor</h3><p>Transforme o curso em assinatura: o aluno aplica o método todo dia no WhatsApp, com a sua marca.</p></article>
+          <article class="recurso"><svg class="i" aria-hidden="true"><use href="#i-alvo"/></svg><h3>Agência e gestor de tráfego</h3><p>Pare de vender hora. Venda um SaaS seu, com recorrência e a margem inteira.</p></article>
+          <article class="recurso"><svg class="i" aria-hidden="true"><use href="#i-calculadora"/></svg><h3>Consultor, planejador e contador</h3><p>Ofereça à sua carteira um jeito de registrar os gastos sem esforço, com o seu nome.</p></article>
+          <article class="recurso"><svg class="i" aria-hidden="true"><use href="#i-foguete"/></svg><h3>Empreendedor de SaaS</h3><p>Produto pronto, com a sua marca em dias, em vez de meses de desenvolvimento.</p></article>
+          <article class="recurso"><svg class="i" aria-hidden="true"><use href="#i-comunidade"/></svg><h3>Igrejas, associações e comunidades</h3><p>Um benefício diário e útil para a sua comunidade, que se paga sozinho.</p></article>
+          <article class="recurso"><svg class="i" aria-hidden="true"><use href="#i-pessoas"/></svg><h3>Influenciador de nicho</h3><p>Um produto para a sua audiência usar todo dia, e não só quando você posta.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 11. PAINEL ADMIN ============ -->
+    <section class="secao secao--creme" id="admin">
+      <div class="caixa">
+        <h2 class="centro">Um painel para operar o negócio inteiro. <span class="titulo-destaque">Sem tocar em código.</span></h2>
+        <p class="lead centro">Seis áreas, no computador ou no celular. E, por desenho, você não vê os lançamentos das famílias: a privacidade vira argumento de venda.</p>
+
+        <!-- Telas desenhadas com dados ilustrativos. Troque por prints reais do Admin quando existirem. -->
+        <div class="wl-admin" data-wl-abas>
+          <div class="wl-admin__abas" role="tablist" aria-label="Áreas do painel Admin">
+            <button type="button" role="tab" id="aba-visao" aria-controls="tela-visao" aria-selected="true" class="is-active">Visão geral</button>
+            <button type="button" role="tab" id="aba-clientes" aria-controls="tela-clientes" aria-selected="false" tabindex="-1">Clientes</button>
+            <button type="button" role="tab" id="aba-planos" aria-controls="tela-planos" aria-selected="false" tabindex="-1">Planos</button>
+            <button type="button" role="tab" id="aba-pagamentos" aria-controls="tela-pagamentos" aria-selected="false" tabindex="-1">Pagamentos</button>
+            <button type="button" role="tab" id="aba-agentes" aria-controls="tela-agentes" aria-selected="false" tabindex="-1">Agentes</button>
+            <button type="button" role="tab" id="aba-config" aria-controls="tela-config" aria-selected="false" tabindex="-1">Configurações</button>
+          </div>
+
+          <div class="wl-admin__janela">
+            <div class="tour-app__topo" aria-hidden="true">
+              <span class="tour-app__pontos"><i></i><i></i><i></i></span>
+              <span class="tour-app__endereco">app.suamarca.com.br/admin</span>
+              <span class="tour-app__status"><i></i> operacional</span>
+            </div>
+
+            <div class="wl-admin__tela" role="tabpanel" id="tela-visao" aria-labelledby="aba-visao">
+              <div class="wl-kpis">
+                <div><small>Clientes</small><strong>248</strong></div>
+                <div><small>Grupos vinculados</small><strong>251</strong></div>
+                <div><small>Grupos com agente ativo</small><strong>249</strong></div>
+                <div><small>Números conectados</small><strong>3</strong></div>
+              </div>
+              <div class="wl-bloco">
+                <div class="wl-bloco__titulo"><b>Saúde das conexões</b><span class="wl-chip wl-chip--ok">Tudo operacional</span></div>
+                <div class="wl-linha"><span>Número 1 · rodízio</span><span class="wl-chip wl-chip--ok">Conectado</span><em>92 grupos</em></div>
+                <div class="wl-linha"><span>Número 2 · rodízio</span><span class="wl-chip wl-chip--ok">Conectado</span><em>88 grupos</em></div>
+                <div class="wl-linha"><span>Número 3 · rodízio</span><span class="wl-chip wl-chip--ok">Conectado</span><em>71 grupos</em></div>
+              </div>
+              <p class="wl-admin__legenda">Clientes, grupos e números num relance, com aviso no sino quando um número cai.</p>
+            </div>
+
+            <div class="wl-admin__tela" role="tabpanel" id="tela-clientes" aria-labelledby="aba-clientes" hidden>
+              <div class="wl-bloco">
+                <div class="wl-bloco__titulo"><b>Clientes</b><span class="wl-botao-falso">+ Novo cliente</span></div>
+                <div class="wl-linha"><span>Família Souza</span><span class="wl-chip wl-chip--ok">Em dia</span><em>Família Premium</em></div>
+                <div class="wl-linha"><span>Carla e Diego</span><span class="wl-chip wl-chip--info">Em teste</span><em>Casal</em></div>
+                <div class="wl-linha"><span>Marcos Lima</span><span class="wl-chip wl-chip--alerta">Em tolerância</span><em>Essencial</em></div>
+                <div class="wl-linha"><span>Patrícia Rocha</span><span class="wl-chip">Aguardando pagamento</span><em>Casal</em></div>
+              </div>
+              <p class="wl-admin__legenda">“Novo cliente” em um clique: conta, acesso, grupo no WhatsApp e mensagem no privado, com checklist do que deu certo.</p>
+            </div>
+
+            <div class="wl-admin__tela" role="tabpanel" id="tela-planos" aria-labelledby="aba-planos" hidden>
+              <div class="wl-bloco">
+                <div class="wl-bloco__titulo"><b>Planos à venda</b><span class="wl-chip">3 planos</span></div>
+                <div class="wl-linha"><span>Essencial</span><em>1 pessoa · 1 grupo</em><span class="wl-botao-falso">Copiar link</span></div>
+                <div class="wl-linha"><span>Casal <i class="wl-selo-mini">Mais escolhido</i></span><em>2 pessoas</em><span class="wl-botao-falso">Copiar link</span></div>
+                <div class="wl-linha"><span>Família Premium</span><em>6 pessoas · 2 grupos</em><span class="wl-botao-falso">Copiar link</span></div>
+              </div>
+              <div class="wl-funil-mini">
+                <div><small>Cadastros</small><strong>412</strong></div>
+                <div><small>Começaram o teste</small><strong>268</strong></div>
+                <div><small>Assinaram</small><strong>131</strong></div>
+              </div>
+              <p class="wl-admin__legenda">Planos modulares com link de venda pronto e o funil por plano e por campanha UTM.</p>
+            </div>
+
+            <div class="wl-admin__tela" role="tabpanel" id="tela-pagamentos" aria-labelledby="aba-pagamentos" hidden>
+              <div class="wl-kpis">
+                <div><small>Aprovados · 30 dias</small><strong>186</strong></div>
+                <div><small>Aguardando pagamento</small><strong>12</strong></div>
+                <div><small>Reembolsos e chargebacks</small><strong>1</strong></div>
+                <div><small>Pedem atenção</small><strong>0</strong></div>
+              </div>
+              <div class="wl-bloco">
+                <div class="wl-linha"><span>Família Souza</span><em>Pix Automático</em><span class="wl-chip wl-chip--ok">Pago</span></div>
+                <div class="wl-linha"><span>Carla e Diego</span><em>Cartão de crédito</em><span class="wl-chip wl-chip--ok">Pago</span></div>
+                <div class="wl-linha"><span>Patrícia Rocha</span><em>Pix Automático</em><span class="wl-chip">Aguardando</span></div>
+              </div>
+              <p class="wl-admin__legenda">Cobranças, situação e eventos do Asaas num só lugar, com aviso quando o valor pago diverge do plano.</p>
+            </div>
+
+            <div class="wl-admin__tela" role="tabpanel" id="tela-agentes" aria-labelledby="aba-agentes" hidden>
+              <div class="wl-orquestra" aria-hidden="true">
+                <span class="wl-orquestra__centro">Orquestrador</span>
+                <span>Lançamento</span><span>Edição</span><span>Relatório</span>
+                <span>Agenda</span><span>Recepcionista</span><span>Consultor</span>
+              </div>
+              <p class="wl-admin__legenda">7 agentes de IA, cada um com instruções, modelos de mensagem, vocabulário, tom e figurinhas. E um banco de testes que mostra o que seria registrado, sem gravar nada.</p>
+            </div>
+
+            <div class="wl-admin__tela" role="tabpanel" id="tela-config" aria-labelledby="aba-config" hidden>
+              <div class="wl-bloco wl-identidade">
+                <div class="wl-bloco__titulo"><b>Identidade visual</b><span class="wl-chip wl-chip--ok">Contraste ok</span></div>
+                <div class="wl-campo"><small>Nome do produto</small><b>Sua Marca Finanças</b></div>
+                <div class="wl-campo"><small>Nome do assistente</small><b>Zé do Caixa</b></div>
+                <div class="wl-campo"><small>Cores</small><span class="wl-cores"><i style="--c:#0f766e"></i><i style="--c:#f59e0b"></i><i style="--c:#fde68a"></i></span></div>
+              </div>
+              <p class="wl-admin__legenda">Logo, cores, card de compartilhamento, números, grupos, Asaas, OpenAI, e-mail, termos e 2FA em 11 abas.</p>
+            </div>
+          </div>
+          <p class="wl-legenda">Telas desenhadas com dados ilustrativos.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 12. PLANOS MODULARES ============ -->
+    <section class="secao" id="planos-modulares">
+      <div class="caixa">
+        <h2 class="centro">Você decide o que cada plano libera. <span class="titulo-destaque">O upgrade se vende sozinho.</span></h2>
+        <p class="lead centro">20 recursos que ligam e desligam por plano, 5 limites e até 4 ciclos de cobrança. Mudou o plano, vale na hora para todos os clientes dele.</p>
+
+        <div class="wl-modulos">
+          <fieldset class="wl-modulo">
+            <legend>Módulos do portal</legend>
+            <label><input type="checkbox" checked> Contas bancárias</label>
+            <label><input type="checkbox" checked> Cartões de crédito</label>
+            <label><input type="checkbox" checked> Relatórios</label>
+            <label><input type="checkbox" checked> Metas e limites</label>
+            <label><input type="checkbox" checked> Recorrentes</label>
+            <label><input type="checkbox" checked> Parcelamentos</label>
+            <label><input type="checkbox"> Agenda</label>
+            <label><input type="checkbox"> Exportar</label>
+          </fieldset>
+          <fieldset class="wl-modulo">
+            <legend>Assistente no WhatsApp</legend>
+            <label><input type="checkbox" checked> Lançar por áudio</label>
+            <label><input type="checkbox" checked> Lançar por foto</label>
+            <label><input type="checkbox" checked> Pedir relatório no grupo</label>
+            <label><input type="checkbox" checked> Editar e excluir pelo grupo</label>
+            <label><input type="checkbox"> Agentes consultores</label>
+            <label><input type="checkbox"> Figurinhas nas respostas</label>
+          </fieldset>
+          <fieldset class="wl-modulo">
+            <legend>Envios automáticos</legend>
+            <label><input type="checkbox"> Avisos de vencimento</label>
+            <label><input type="checkbox"> Avisos de metas</label>
+            <label><input type="checkbox"> Lembretes da agenda</label>
+            <label><input type="checkbox"> Resumo periódico</label>
+            <label><input type="checkbox"> Figurinha no resumo</label>
+            <label><input type="checkbox"> Resumo reescrito pela IA</label>
+          </fieldset>
+        </div>
+        <p class="wl-legenda">Pode clicar: é assim que você monta um plano. Os envios automáticos nascem desligados e ficam para os planos mais caros.</p>
+
+        <h3 class="wl-subtitulo centro">Um exemplo de escada <small>(o preço é seu)</small></h3>
+        <div class="wl-escada">
+          <article class="wl-degrau">
+            <h4>Essencial</h4>
+            <p class="wl-degrau__para">Quem mora sozinho</p>
+            <p>Texto e áudio, relatório no grupo, categorias e dashboard.</p>
+            <span class="wl-chip">1 pessoa · 1 grupo</span>
+          </article>
+          <article class="wl-degrau">
+            <h4>Casal</h4>
+            <p class="wl-degrau__para">Duas pessoas</p>
+            <p>Tudo do Essencial, mais foto, edição pelo grupo, cartões, contas, metas, recorrentes e parcelamentos.</p>
+            <span class="wl-chip">2 pessoas</span>
+          </article>
+          <article class="wl-degrau wl-degrau--topo">
+            <h4>Família Premium</h4>
+            <p class="wl-degrau__para">A família completa</p>
+            <p>Tudo, mais agenda, consultores, figurinhas, avisos de vencimento, resumo semanal e exportação.</p>
+            <span class="wl-chip">6 pessoas · 2 grupos</span>
+          </article>
+        </div>
+        <ul class="wl-pills" aria-label="Formas de começar">
+          <li>Teste grátis de 1 a 365 dias</li>
+          <li>1ª cobrança promocional</li>
+          <li>Mensal, trimestral, semestral e anual</li>
+          <li>Troca de plano proporcional</li>
+          <li>Plano interno para cortesia e parceiro</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 13. IA COM A SUA CARA ============ -->
+    <section class="secao secao--creme" id="personas">
+      <div class="caixa">
+        <h2 class="centro">Mesma IA, a personalidade que você quiser. <span class="titulo-destaque">Mudando só o painel.</span></h2>
+        <p class="lead centro">A mesma frase, “gastei 45,90 no almoço”, respondida por duas instalações diferentes.</p>
+        <div class="wl-personas">
+          <figure class="wl-persona">
+            <figcaption><b>Dona Conta</b><span>Brincalhona, com emojis e figurinha</span></figcaption>
+            <div class="wl-zap">
+              <p class="bolha bolha--eu"><b class="bolha__nome">Ana</b>gastei 45,90 no almoço</p>
+              <p class="bolha"><b class="bolha__nome bolha__nome--ela">Dona Conta</b>Anotadíssimo! 🍽️ Almoço de R$ 45,90 em Alimentação. Tô de olho, hein? 👀<br>👉 GF8656</p>
+              <img class="wl-persona__figurinha" src="/assets/figurinha-mais-uma-pra-conta.png" width="88" height="88" alt="Figurinha da Dona Conta" loading="lazy">
+            </div>
+          </figure>
+          <figure class="wl-persona">
+            <figcaption><b>Assistente do Método X</b><span>Formal, sem emojis, vocabulário do curso</span></figcaption>
+            <div class="wl-zap">
+              <p class="bolha bolha--eu"><b class="bolha__nome">Ana</b>gastei 45,90 no almoço</p>
+              <p class="bolha"><b class="bolha__nome bolha__nome--ela">Assistente do Método X</b>Despesa registrada.<br>Almoço · R$ 45,90<br>Categoria: Alimentação (pilar Consumo)<br>Código: GF8656</p>
+            </div>
+          </figure>
+        </div>
+        <div class="recursos wl-ajustes">
+          <article class="recurso"><svg class="i" aria-hidden="true"><use href="#i-pessoas"/></svg><h3>Nome e tom</h3><p>Amigável, consultivo, brincalhão, motivador ou formal. Com emojis sempre, às vezes ou nunca.</p></article>
+          <article class="recurso"><svg class="i" aria-hidden="true"><use href="#i-documento"/></svg><h3>107 textos e os modelos</h3><p>Boas-vindas, avisos, cobrança e cada resposta, com variáveis e “Restaurar padrão”.</p></article>
+          <article class="recurso"><svg class="i" aria-hidden="true"><use href="#i-curso"/></svg><h3>Vocabulário</h3><p>Gírias regionais, nomes de loja e os termos do seu curso, para ela entender seu público.</p></article>
+          <article class="recurso"><svg class="i" aria-hidden="true"><use href="#i-comunidade"/></svg><h3>Figurinhas da sua marca</h3><p>Até 12 por tipo de mensagem, com intervalo mínimo para não virar barulho.</p></article>
+          <article class="recurso"><svg class="i" aria-hidden="true"><use href="#i-calculadora"/></svg><h3>Consultores próprios</h3><p>Crie um “Coach de dívidas” ou um “Consultor de investimentos” e libere só em certos planos.</p></article>
+          <article class="recurso"><svg class="i" aria-hidden="true"><use href="#i-pulso"/></svg><h3>Banco de testes</h3><p>Digite uma frase e veja para qual agente ela vai e o que seria registrado, sem gravar nada.</p></article>
+        </div>
+        <p class="garantia wl-nota"><svg class="i" aria-hidden="true"><use href="#i-chave"/></svg><span><b>Custo de IA mínimo.</b> Com o gpt-4o-mini, cada mensagem de texto custa menos de 1 centavo de real: cerca de R$ 2 por mês para uma família que manda 10 mensagens por dia. Usa a sua própria chave da OpenAI, com atalhos sem IA para “sim” e “paguei” e um teto diário de mensagens por plano.</span></p>
+      </div>
+    </section>
+
+    <!-- ============ 14. A MÁQUINA DE VENDAS ============ -->
+    <section class="secao" id="maquina">
+      <div class="caixa">
+        <h2 class="centro">Do clique no anúncio ao grupo funcionando. <span class="titulo-destaque">Sem você encostar.</span></h2>
+        <p class="lead centro">Não precisa de plataforma de checkout, de integração nem de alguém criando grupo na mão. E a mensalidade cai direto na sua conta Asaas, sem intermediário.</p>
+        <ol class="wl-fluxo">
+          <li><span>1</span><b>Anúncio</b><small>A campanha UTM fica guardada.</small></li>
+          <li><span>2</span><b>Link de venda</b><small>/assinar/plano, com o que o plano inclui.</small></li>
+          <li><span>3</span><b>Cadastro</b><small>E-mail, WhatsApp e senha. O teste começa com código no WhatsApp.</small></li>
+          <li><span>4</span><b>Pagamento</b><small>Pix Automático ou cartão, pelo Asaas.</small></li>
+          <li><span>5</span><b>Grupo criado</b><small>Capa, descrição, travas e boas-vindas.</small></li>
+          <li><span>6</span><b>Cliente usando</b><small>A família lança e consulta no grupo.</small></li>
+        </ol>
+        <div class="wl-sozinho">
+          <h3>E depois, também sozinho</h3>
+          <ul class="lista-check">
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Renovação confirmada estende o período; atraso, reembolso ou chargeback bloqueiam portal e grupo, sempre preservando os dados.</li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Fim do teste e fim da promoção são avisados no grupo, com antecedência.</li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>O próprio cliente troca de plano, pagando só a diferença dos dias. Nunca gera duas cobranças.</li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Cadastro que não paga em 7 dias é apagado, e continua contando no funil.</li>
+          </ul>
+        </div>
+        <div class="cta cta--centro">
+          <a class="btn btn--primario btn--grande" href="#oferta" data-comprar>Quero ter o meu app</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 15. ESCALA E SEGURANÇA ============ -->
+    <section class="secao secao--creme" id="seguranca">
+      <div class="caixa">
+        <h2 class="centro">Feito para crescer <span class="titulo-destaque">sem virar dor de cabeça.</span></h2>
+        <p class="lead centro">Cada comprador recebe uma instalação própria, em servidor próprio. Os dados dos seus clientes não se misturam com os de ninguém.</p>
+        <div class="recursos">
+          <article class="recurso"><svg class="i" aria-hidden="true"><use href="#i-rodizio"/></svg><h3>Rodízio de números</h3><p>Novos clientes são distribuídos entre os números, cada um com teto de grupos.</p></article>
+          <article class="recurso"><svg class="i" aria-hidden="true"><use href="#i-globo"/></svg><h3>Proxy por número</h3><p>Cada número pode sair por um IP diferente.</p></article>
+          <article class="recurso"><svg class="i" aria-hidden="true"><use href="#i-pulso"/></svg><h3>Monitor de conexão</h3><p>Estado de cada número checado a cada 5 minutos, com aviso no painel.</p></article>
+          <article class="recurso"><svg class="i" aria-hidden="true"><use href="#i-documento"/></svg><h3>LGPD com recibo</h3><p>Cada pessoa do grupo aceita antes de a IA ler qualquer mensagem. Recibo exportável em CSV.</p></article>
+          <article class="recurso"><svg class="i" aria-hidden="true"><use href="#i-escudo"/></svg><h3>Isolamento por conta</h3><p>Uma família nunca lê nem altera os dados de outra. E você não vê os lançamentos.</p></article>
+          <article class="recurso"><svg class="i" aria-hidden="true"><use href="#i-cadeado"/></svg><h3>2FA e chaves cifradas</h3><p>Segundo fator no Admin. Chaves da OpenAI, do Asaas e do Resend guardadas cifradas.</p></article>
+          <article class="recurso"><svg class="i" aria-hidden="true"><use href="#i-foto"/></svg><h3>Mídia fora do banco</h3><p>Áudio e foto ficam só em armazenamento temporário. A mídia de quem não é cadastrado nem é guardada.</p></article>
+          <article class="recurso"><svg class="i" aria-hidden="true"><use href="#i-servidor"/></svg><h3>Instalação própria</h3><p>Imagens prontas para Easypanel. A API se recusa a subir com segredos de exemplo.</p></article>
+          <article class="recurso"><svg class="i" aria-hidden="true"><use href="#i-atualizar"/></svg><h3>Atualizações com CHANGELOG</h3><p>O rodapé do painel mostra a versão e avisa se algum serviço ficou para trás.</p></article>
+        </div>
+        <p class="garantia wl-nota"><svg class="i" aria-hidden="true"><use href="#i-sino"/></svg><span><b>Sem promessa impossível:</b> o WhatsApp funciona pela Evolution Go, uma API não oficial, então existe risco de bloqueio de número. Ritmo de envio, proxy, rodízio e avisos só quando necessário reduzem esse risco, mas não zeram. A API oficial da Meta limita grupos a 8 pessoas e cobra por mensagem.</span></p>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         ATO 3: A OFERTA
+         ================================================================ -->
+
+    <!-- ============ 16. SIMULADOR DE RECEITA ============ -->
+    <section class="secao" id="simulador">
+      <div class="caixa">
+        <h2 class="centro">Quanto a sua recorrência <span class="titulo-destaque">pode render por mês?</span></h2>
+        <div class="wl-simulador" data-simulador>
+          <form class="wl-simulador__campos" onsubmit="return false">
+            <label class="wl-campo-faixa">
+              <span>Clientes pagantes <output data-saida="clientes">200</output></span>
+              <input type="range" min="10" max="2000" step="10" value="200" data-campo="clientes">
+            </label>
+            <label class="wl-campo-numero">
+              <span>Mensalidade média (R$)</span>
+              <input type="number" min="0" step="0.1" value="49" inputmode="decimal" data-campo="mensalidade">
+            </label>
+            <label class="wl-campo-numero">
+              <span>Custo fixo por mês (R$)<small>VPS, proxy e créditos da OpenAI</small></span>
+              <input type="number" min="0" step="10" value="150" inputmode="decimal" data-campo="custoFixo">
+            </label>
+          </form>
+          <div class="wl-simulador__resultado" aria-live="polite">
+            <div><small>Receita por mês</small><strong data-resultado="receita">R$ 9.800,00</strong></div>
+            <div><small>Custos estimados</small><strong data-resultado="custos">R$ 150,00</strong></div>
+            <div class="wl-simulador__destaque"><small>Sobra por mês</small><strong data-resultado="sobra">R$ 9.650,00</strong></div>
+            <div><small>Em 12 meses</small><strong data-resultado="ano">R$ 115.800,00</strong></div>
+          </div>
+        </div>
+        <p class="wl-legenda">Simulação. Os custos iniciais são exemplos: ajuste com os seus números. Não inclui o valor da licença, as taxas do Asaas, impostos nem cancelamentos.</p>
+        <div class="cta cta--centro">
+          <a class="btn btn--primario btn--grande" href="#oferta" data-comprar>Quero ter o meu app</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 17. OFERTA ============ -->
+    <section class="secao secao--azul" id="oferta">
+      <div class="caixa">
+        <h2 class="centro">Tudo o que vem <span class="titulo-destaque">na sua licença.</span></h2>
+        <div class="oferta">
+          <div class="pilha">
+            <h3>O que você recebe</h3>
+            <ul class="lista-check">
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Assistente no grupo do WhatsApp, com 7 agentes de IA configuráveis.</li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Painel Admin: clientes, planos, pagamentos, agentes e configurações.</li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Portal do cliente com 11 telas, instalável como app.</li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Link de venda, checkout com Pix Automático e cartão, e funil por campanha.</li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Grupos do WhatsApp criados sozinhos depois do pagamento.</li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Marca, domínio, número, textos, termos e e-mails seus.</li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Tudo no seu próprio servidor: instalado por nós ou a partir do código-fonte.</li>
+            </ul>
+            <div class="wl-bonus" data-bonus hidden>
+              <h3>Bônus</h3>
+              <ul class="lista-check" data-bonus-lista></ul>
+            </div>
+          </div>
+          <div class="wl-ofertas" data-ofertas aria-live="polite"></div>
+        </div>
+        <p class="garantia"><svg class="i" aria-hidden="true"><use href="#i-cadeado"/></svg><span data-garantia>Direito de arrependimento de 7 dias, conforme o Código de Defesa do Consumidor.</span></p>
+
+        <div class="wl-precisa">
+          <h3>O que você precisa ter</h3>
+          <ul>
+            <li><svg class="i" aria-hidden="true"><use href="#i-globo"/></svg>Um domínio</li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-servidor"/></svg>Um servidor (VPS) com Easypanel</li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-celular"/></svg>Pelo menos um chip de WhatsApp dedicado</li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-dinheiro"/></svg>Conta no Asaas, para receber</li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-chave"/></svg>Chave da OpenAI, para a IA</li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-documento"/></svg>Resend, para e-mails (opcional, recomendado)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 18. PERGUNTAS FREQUENTES ============ -->
+    <section class="secao" id="perguntas">
+      <div class="caixa caixa--estreita">
+        <h2>Perguntas <span class="titulo-destaque">frequentes</span></h2>
+        <!-- EDITÁVEL: perguntas e respostas -->
+        <div class="faq">
+          <details><summary>Preciso saber programar?</summary><p>Não, na Licença + Implantação: a gente entrega instalado na sua VPS, e tudo se configura pelo painel (marca, planos, textos, agentes e pagamentos). Só a compra do código-fonte pede conhecimento técnico, porque a instalação e as modificações ficam com você.</p></details>
+          <details><summary>Qual a diferença entre as duas opções?</summary><p>Na Licença + Implantação, você paga R$ 397,00 de setup e R$ 197,00 por mês, recebe o app instalado na sua VPS e a gente cuida das atualizações e correções. No Código-fonte, você paga R$ 997,00 uma vez, recebe o código completo e segue com as suas próprias modificações e atualizações.</p></details>
+          <details><summary>E se o WhatsApp bloquear o número?</summary><p>O risco existe, porque a conexão usa uma API não oficial. Ele é reduzido com ritmo de envio, proxy por número, rodízio, teto de grupos e avisos só quando necessário. Cada cliente fica no mesmo número, e um número caído sai da roda na criação de novos grupos.</p></details>
+          <details><summary>Quanto custa a IA por cliente?</summary><p>Quase nada. O padrão é o gpt-4o-mini, um dos modelos mais baratos da OpenAI: US$ 0,15 por milhão de tokens lidos e US$ 0,60 por milhão escritos. Na prática, cada mensagem de texto custa <b>menos de 1 centavo de real</b>, e uma família que manda 10 mensagens por dia fica em torno de <b>R$ 2 por mês</b>. Áudio e foto custam um pouco mais, poucos centavos cada. Ainda há atalhos sem IA para “sim” e “paguei” e um teto diário de mensagens por plano. O custo cai na sua própria chave da OpenAI; os valores são estimativas e variam com o uso e o câmbio.</p></details>
+          <details><summary>Como eu recebo dos meus clientes?</summary><p>Direto na sua conta Asaas, sem intermediário, com Pix Automático e cartão recorrentes. O painel mostra cada cobrança e a situação de cada assinatura.</p></details>
+          <details><summary>Eu vejo os gastos dos meus clientes?</summary><p>Não. Por desenho, o Admin não mostra os lançamentos das famílias. Você vê clientes, planos, pagamentos e conexões. Isso é argumento de privacidade na hora de vender.</p></details>
+          <details><summary>E a LGPD?</summary><p>Você tem Termos de Uso e Política de Privacidade próprios, editados e versionados no painel. Cada pessoa do grupo aceita antes de ter qualquer mensagem lida pela IA, há consentimento específico para dados sensíveis e recibo de cada aceite, exportável em CSV.</p></details>
+          <details><summary>Meu cliente não vai largar como larga todo app?</summary><p>No grupo não existe app para esquecer. Os avisos e o resumo da semana puxam a família de volta, e o painel mede quantos acessos vieram do grupo.</p></details>
+          <details><summary>Posso mudar a cara do assistente?</summary><p>Sim: nome, tom, emojis, textos, figurinhas e vocabulário. Dá para ter uma tia brincalhona, um assistente formal para clientes de contabilidade ou o “Assistente do Método X” com os termos do seu curso.</p></details>
+          <details><summary>Dá para vender para um nicho?</summary><p>Sim. Categorias, consultores, vocabulário e planos são seus: dá para montar um assistente de MEI, de igreja ou de um método de curso.</p></details>
+          <details><summary>Vou ter suporte e atualizações?</summary><p data-resposta-suporte>Depende da opção. Na Licença + Implantação, a gente entrega instalado na sua VPS e cuida das atualizações e correções enquanto a mensalidade estiver ativa. Na compra do código-fonte, você recebe o código completo e segue com as suas próprias modificações e atualizações.</p></details>
+        </div>
+        <!-- FIM EDITÁVEL -->
+      </div>
+    </section>
+
+    <!-- ============ 19. CHAMADA FINAL ============ -->
+    <section class="secao secao--final" id="final">
+      <div class="caixa caixa--estreita centro">
+        <img src="/assets/mascote.webp" width="120" height="120" alt="" class="final__mascote" loading="lazy">
+        <h2>Seu app de finanças pode estar vendendo com o seu nome <span class="titulo-destaque">em poucos dias.</span></h2>
+        <p class="lead centro">Enquanto isso, a família que vai virar sua cliente continua esquecendo de lançar.</p>
+        <div class="cta cta--centro">
+          <a class="btn btn--destaque btn--grande" href="#oferta" data-comprar="direto">Quero ter o meu app</a>
+          <p class="cta__nota" data-nota-final>Fale com a equipe pelo WhatsApp e veja a demonstração.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ RODAPÉ ============ -->
+  <footer class="rodape">
+    <div class="caixa rodape__grade">
+      <img class="logo" src="/assets/logo-escuro.webp" width="418" height="96" alt="Dona Conta" data-logo="escuro" loading="lazy">
+      <nav class="rodape__links" aria-label="Links do rodapé">
+        <a href="/">Conheça o app</a>
+        <a href="https://app.donaconta.com.br/termos" data-app="/termos">Termos de uso</a>
+        <a href="https://app.donaconta.com.br/privacidade" data-app="/privacidade">Privacidade</a>
+        <a href="https://wa.me/5511999999999" data-whatsapp-vendas>WhatsApp</a>
+      </nav>
+      <p class="rodape__empresa">
+        <a href="mailto:contato@donaconta.com.br" data-email>contato@donaconta.com.br</a>
+        <span data-empresa hidden></span>
+        <span data-cnpj>CNPJ 00.000.000/0001-00</span>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Botão fixo no celular, aparece depois do topo -->
+  <div class="barra-fixa" aria-hidden="true">
+    <a class="btn btn--primario" href="#oferta" data-comprar tabindex="-1">Quero ter o meu app</a>
+  </div>
+
+  <!-- Aviso de cookies: só aparece com o Pixel ou o GA ligados no config.js -->
+  <div class="cookies" role="region" aria-label="Aviso de cookies" hidden>
+    <p>Usamos cookies para medir de onde vêm as visitas e melhorar nossos anúncios. Veja a <a href="https://app.donaconta.com.br/privacidade" data-app="/privacidade">política de privacidade</a>.</p>
+    <button type="button" class="btn btn--primario btn--pequeno" data-cookies-ok>Entendi</button>
+  </div>
+</body>
+</html>
