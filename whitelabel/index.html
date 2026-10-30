@@ -29,12 +29,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@72,800&family=Inter:wght@400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="/css/estilo.css?v=20261026-2">
-  <link rel="stylesheet" href="/css/whitelabel.css?v=20261026-3">
+  <link rel="stylesheet" href="/css/whitelabel.css?v=20261030-13">
 
   <script src="/config.js"></script>
   <script src="/whitelabel/config.js"></script>
+  <script src="/whitelabel/conversas.js?v=20261030-2"></script>
   <script src="/js/pagina.js?v=20261026-1" defer></script>
-  <script src="/js/whitelabel.js?v=20261026-3" defer></script>
+  <script src="/js/whitelabel.js?v=20261030-7" defer></script>
 </head>
 <body class="wl">
   <!-- Ícones usados na página (desenho de linha, herdam a cor do texto) -->
@@ -230,7 +231,7 @@
               <div class="demo-compositor">
                 <span class="demo-compositor__mais">＋</span>
                 <span class="demo-compositor__campo">
-                  <span class="demo-compositor__placeholder">Digite uma mensagem</span>
+                  <span class="demo-compositor__placeholder">Mensagem</span>
                   <span class="demo-compositor__digitado" data-demo-digitado></span><i class="demo-compositor__cursor"></i>
                   <span class="demo-gravacao">
                     <i class="demo-gravacao__ponto"></i>
@@ -264,10 +265,10 @@
     <section class="wl-numeros" aria-label="O produto em números">
       <div class="caixa">
         <ul>
-          <li><strong>7</strong><span>agentes de IA</span></li>
-          <li><strong>20</strong><span>recursos liberáveis por plano</span></li>
-          <li><strong>11</strong><span>telas no portal do cliente</span></li>
-          <li><strong>107</strong><span>mensagens editáveis</span></li>
+          <li><strong data-contar="7">7</strong><span>agentes de IA</span></li>
+          <li><strong data-contar="23">23</strong><span>recursos liberáveis por plano</span></li>
+          <li><strong data-contar="11">11</strong><span>telas no portal do cliente</span></li>
+          <li><strong data-contar="127">127</strong><span>mensagens editáveis</span></li>
         </ul>
       </div>
     </section>
@@ -339,9 +340,9 @@
             <p>A mensagem de um puxa o lançamento do outro. É isso que segura o cliente.</p>
           </div>
           <div class="pilar">
-            <span class="pilar__icone"><svg class="i" aria-hidden="true"><use href="#i-grupos"/></svg></span>
-            <h3>Uma conta, vários grupos</h3>
-            <p>Casa e negócio somando na mesma conta, conforme o plano.</p>
+            <span class="pilar__icone"><svg class="i" aria-hidden="true"><use href="#i-pergunta"/></svg></span>
+            <h3>Fala do jeito da família</h3>
+            <p>Cada conta pode descrever como quer que o assistente fale no grupo, conforme o plano.</p>
           </div>
         </div>
 
@@ -362,52 +363,86 @@
       <div class="caixa">
         <h2 class="centro">Seu cliente fala como fala com qualquer pessoa. <span class="titulo-destaque">O assistente organiza.</span></h2>
         <p class="lead centro">Texto, áudio ou foto do cupom. Os números saem do banco de dados; a IA só escreve a resposta, então ela não inventa valores.</p>
-        <!-- Conversas ilustrativas; troque por prints reais da instalação de demonstração quando existirem. -->
-        <div class="wl-cenas">
-          <figure class="wl-cena">
-            <figcaption><svg class="i" aria-hidden="true"><use href="#i-conta"/></svg>Texto</figcaption>
-            <div class="wl-zap">
-              <p class="bolha bolha--eu"><b class="bolha__nome">Ana</b>gastei 45,90 no almoço</p>
-              <p class="bolha"><b class="bolha__nome bolha__nome--ela" data-assistente>Dona Conta</b>✅ Despesa lançada<br>🍽️ Almoço · R$ 45,90<br>📍 Alimentação · hoje<br>👉 Código: GF8656</p>
+        <!-- Cada janela passa uma conversa em loop. Os textos ficam em whitelabel/conversas.js. -->
+        <div class="wl-rcs">
+          <article class="wl-rc">
+            <div class="wl-rc__texto">
+              <span class="wl-rc__rotulo"><svg class="i" aria-hidden="true"><use href="#i-conta"/></svg>Texto</span>
+              <h3>Escreve como fala com qualquer pessoa.</h3>
+              <p>Sem comando decorado. O assistente entende a frase, escolhe a categoria e confirma no grupo, para todo mundo ver.</p>
+              <ul class="lista-check">
+                <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Entende “ontem”, “sexta passada” e “dia 5”.</li>
+                <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Vários itens numa mensagem viram vários lançamentos.</li>
+                <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Conta a pagar fica em aberto até a baixa.</li>
+              </ul>
             </div>
-          </figure>
-          <figure class="wl-cena">
-            <figcaption><svg class="i" aria-hidden="true"><use href="#i-mic"/></svg>Áudio</figcaption>
-            <div class="wl-zap">
-              <p class="bolha bolha--eu"><b class="bolha__nome">Beto</b><span class="audio"><span class="audio__play">▶</span><span class="audio__onda"></span><span>0:07</span></span></p>
-              <p class="bolha"><b class="bolha__nome bolha__nome--ela" data-assistente>Dona Conta</b>✅ Mercado · R$ 212,40<br>📍 Alimentação<br>💳 Cartão Nubank, fatura de novembro</p>
+            <div data-roteiro="texto"><div data-fone-tela></div></div>
+          </article>
+          <article class="wl-rc">
+            <div class="wl-rc__texto">
+              <span class="wl-rc__rotulo"><svg class="i" aria-hidden="true"><use href="#i-mic"/></svg>Áudio</span>
+              <h3>Na correria, manda um áudio.</h3>
+              <p>O áudio é transcrito em português e tratado como texto. Dá para fazer tudo por voz, sem digitar nada.</p>
+              <ul class="lista-check">
+                <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Lança gastos e receitas.</li>
+                <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Pergunta quanto sobrou no mês.</li>
+                <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Marca compromisso com lembrete no grupo.</li>
+              </ul>
             </div>
-            <p class="wl-cena__nota">Transcrito em português. Dá para fazer tudo por voz.</p>
-          </figure>
-          <figure class="wl-cena">
-            <figcaption><svg class="i" aria-hidden="true"><use href="#i-foto"/></svg>Foto do cupom</figcaption>
-            <div class="wl-zap">
-              <p class="bolha bolha--eu"><b class="bolha__nome">Ana</b>📷 Foto do cupom da farmácia</p>
-              <p class="bolha"><b class="bolha__nome bolha__nome--ela" data-assistente>Dona Conta</b>Li 3 itens no cupom:<br>· Remédio · R$ 38,90<br>· Protetor solar · R$ 54,00<br>· Escova de dente · R$ 12,50<br>✅ Lancei os 3 em Saúde.</p>
+            <div data-roteiro="audio"><div data-fone-tela></div></div>
+          </article>
+          <article class="wl-rc">
+            <div class="wl-rc__texto">
+              <span class="wl-rc__rotulo"><svg class="i" aria-hidden="true"><use href="#i-foto"/></svg>Foto do cupom</span>
+              <h3>Tirou foto, tá lançado.</h3>
+              <p>A IA de visão lê cupom, nota e comprovante, com um ou vários itens de uma vez.</p>
+              <ul class="lista-check">
+                <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>A legenda da foto entra como contexto.</li>
+                <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Leitura duvidosa vira pergunta antes de gravar.</li>
+                <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>O texto da foto nunca é tratado como ordem.</li>
+              </ul>
             </div>
-            <p class="wl-cena__nota">Leitura duvidosa vira pergunta antes de gravar.</p>
-          </figure>
-          <figure class="wl-cena">
-            <figcaption><svg class="i" aria-hidden="true"><use href="#i-cartao"/></svg>Parcelado</figcaption>
-            <div class="wl-zap">
-              <p class="bolha bolha--eu"><b class="bolha__nome">Beto</b>comprei TV 3000 em 10x no Nubank</p>
-              <p class="bolha"><b class="bolha__nome bolha__nome--ela" data-assistente>Dona Conta</b>✅ TV · 10x de R$ 300,00<br>💳 Cartão Nubank<br>Cada parcela na fatura do seu mês, a 1ª em novembro.</p>
+            <div data-roteiro="foto"><div data-fone-tela></div></div>
+          </article>
+          <article class="wl-rc">
+            <div class="wl-rc__texto">
+              <span class="wl-rc__rotulo"><svg class="i" aria-hidden="true"><use href="#i-cartao"/></svg>Cartão e parcelado</span>
+              <h3>Cada compra na fatura certa.</h3>
+              <p>Cartão e parcela são o que mais bagunça o controle da casa. Aqui, cada parcela cai no mês certo.</p>
+              <ul class="lista-check">
+                <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Até 72 parcelas, cada uma com código.</li>
+                <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>A confirmação diz em que fatura entrou.</li>
+                <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Dois cartões parecidos? Ela lista as opções e espera.</li>
+              </ul>
             </div>
-          </figure>
-          <figure class="wl-cena">
-            <figcaption><svg class="i" aria-hidden="true"><use href="#i-pergunta"/></svg>Pergunta por pessoa</figcaption>
-            <div class="wl-zap">
-              <p class="bolha bolha--eu"><b class="bolha__nome">Beto</b>quanto a Maria gastou este mês?</p>
-              <p class="bolha"><b class="bolha__nome bolha__nome--ela" data-assistente>Dona Conta</b>📊 Maria lançou R$ 1.284,30 em outubro.<br>Maior gasto: Mercado, R$ 486,20.<br>🔗 Ver no app</p>
+            <div data-roteiro="parcelado"><div data-fone-tela></div></div>
+          </article>
+          <article class="wl-rc">
+            <div class="wl-rc__texto">
+              <span class="wl-rc__rotulo"><svg class="i" aria-hidden="true"><use href="#i-pergunta"/></svg>Perguntas</span>
+              <h3>Pergunta no grupo, ela responde na hora.</h3>
+              <p>Os números vêm do banco de dados e a IA só escreve a resposta. Por isso, ela não inventa valores.</p>
+              <ul class="lista-check">
+                <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Saldo, gastos, o que vence e metas.</li>
+                <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Por pessoa: quanto cada um gastou.</li>
+                <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>A resposta traz o link do app no período certo.</li>
+              </ul>
             </div>
-          </figure>
-          <figure class="wl-cena">
-            <figcaption><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Baixa de conta</figcaption>
-            <div class="wl-zap">
-              <p class="bolha bolha--eu"><b class="bolha__nome">Ana</b>paguei o W6F4VC</p>
-              <p class="bolha"><b class="bolha__nome bolha__nome--ela" data-assistente>Dona Conta</b>✅ Conta de energia · R$ 98,90<br>Marcada como paga hoje.</p>
+            <div data-roteiro="perguntas"><div data-fone-tela></div></div>
+          </article>
+          <article class="wl-rc">
+            <div class="wl-rc__texto">
+              <span class="wl-rc__rotulo"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Baixa e correção</span>
+              <h3>Errou? É só falar.</h3>
+              <p>Dá baixa, corrige e apaga pela própria conversa, sem abrir o app.</p>
+              <ul class="lista-check">
+                <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Responde “paguei” ao aviso da manhã.</li>
+                <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Muda valor, data, categoria e cartão.</li>
+                <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Antes de apagar, ela pede confirmação.</li>
+              </ul>
             </div>
-          </figure>
+            <div data-roteiro="baixa"><div data-fone-tela></div></div>
+          </article>
         </div>
         <p class="wl-legenda">Conversas ilustrativas, com dados fictícios.</p>
         <div class="cta cta--centro">
@@ -416,19 +451,62 @@
       </div>
     </section>
 
+    <!-- ============ 6B. METAS DE GUARDAR ============ -->
+    <section class="secao secao--azul" id="guardar">
+      <div class="caixa">
+        <h2 class="centro">Não é só controlar gasto. <span class="titulo-destaque">A família também guarda dinheiro junta.</span></h2>
+        <p class="lead centro">A viagem, a reserva, o carro novo: cada meta tem valor e prazo, e o depósito é feito no próprio grupo, em uma frase.</p>
+        <div class="wl-guardar">
+          <div class="wl-guardar__conversa">
+            <div data-roteiro="guardar"><div data-fone-tela></div></div>
+          </div>
+          <div class="wl-guardar__texto">
+            <ul class="lista-check">
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span><b>Guardar, retirar e consultar pelo grupo:</b> “tirei 100 da reserva”, “como está a viagem?”.</span></li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span><b>O app faz a conta:</b> com valor e prazo, diz quanto guardar por mês e se a meta está em dia ou atrasada.</span></li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span><b>Guardar não é gastar:</b> o saldo aparece dividido em Livre e Guardado em metas.</span></li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span><b>Gasto pago com a meta:</b> “paguei o hotel 1500 com o dinheiro da viagem” registra a despesa e tira da meta.</span></li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span><b>Lembra e comemora:</b> aviso no dia de guardar, marcos de 25, 50 e 75% e um bloco no resumo do período.</span></li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span><b>Quem guardou quanto:</b> cada depósito fica registrado com o nome da pessoa.</span></li>
+            </ul>
+            <p class="wl-guardar__fecho">Para você, é mais um motivo para a família ficar: o dinheiro da viagem está sendo juntado ali.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ 7. O QUE ACONTECE SOZINHO ============ -->
     <section class="secao" id="automatico">
-      <div class="caixa caixa--estreita">
-        <h2>Seu cliente não precisa lembrar do app. <span class="titulo-destaque">O app lembra dele.</span></h2>
-        <p class="lead">O assistente fala no grupo na hora certa, e só quando tem algo útil a dizer. É isso que mantém a família usando e a assinatura paga.</p>
-        <ol class="linha-tempo">
-          <li><time>08h</time><p><span class="msg">☀️ Bom dia! Vence hoje: internet R$ 99,90. Se já pagou, responda <b>paguei &lt;código&gt;</b>.</span></p></li>
-          <li><time>12h</time><p><span class="msg">⚠️ Alimentação: R$ 820 de R$ 1.000 (82%). Restam R$ 180.</span></p></li>
-          <li><time>14h</time><p><span class="msg">⏰ Lembrete: consulta hoje, 15:00, no Hospital X.</span></p></li>
-          <li><time>19h</time><p><span class="msg">🔔 Vence amanhã: cartão Nubank.</span></p></li>
-          <li><time>Dom.</time><p><span class="msg">📊 Resumo da semana: quanto entrou, quanto saiu, o maior gasto e o que vence. E uma figurinha para fechar.</span></p></li>
-        </ol>
-        <p class="fecho">Avisos só saem quando há o que dizer, no máximo um por dia de cada tipo.</p>
+      <div class="caixa wl-dia">
+        <div class="wl-dia__cabecalho">
+          <h2>Seu cliente não precisa lembrar do app. <span class="titulo-destaque">O app lembra dele.</span></h2>
+          <p class="lead">O assistente fala no grupo na hora certa, e só quando tem algo útil a dizer. É isso que mantém a família usando e a assinatura paga.</p>
+        </div>
+        <div class="wl-dia__lista">
+          <!-- js/whitelabel.js mostra um aviso por vez e faz a Dona Conta acompanhar (data-gesto). -->
+          <ol class="linha-tempo" data-dia>
+            <li data-gesto="acena"><time>08h</time><p><span class="msg">☀️ Bom dia! Vence hoje: internet R$ 99,90. E hoje é dia de guardar R$ 800,00 na Viagem Foz.</span></p></li>
+            <li data-gesto="alerta"><time>12h</time><p><span class="msg">⚠️ Alimentação: R$ 820 de R$ 1.000 (82%). Restam R$ 180.</span></p></li>
+            <li data-gesto="celular"><time>14h</time><p><span class="msg">⏰ Lembrete: consulta hoje, 15:00, no Hospital X.</span></p></li>
+            <li data-gesto="acena"><time>19h</time><p><span class="msg">🔔 Vence amanhã: cartão Nubank.</span></p></li>
+            <li data-gesto="comemora"><time>Dom.</time><p><span class="msg">📊 Resumo da semana: quanto entrou, quanto saiu, o que vence e o que foi guardado. A IA fecha com ✅ o que foi bem e ⚠️ onde dá para melhorar.</span></p></li>
+          </ol>
+          <p class="fecho">Avisos só saem quando há o que dizer, no máximo um por dia de cada tipo.</p>
+        </div>
+        <!-- Personagem em camadas, para mexer braços e cabeça. Arquivos em assets/dona-conta/. -->
+        <div class="wl-dona" data-dona aria-hidden="true">
+          <span class="wl-dona__sombra"></span>
+          <div class="wl-dona__figura">
+            <img class="wl-dona__corpo" src="/assets/dona-conta/corpo.webp?v=2" width="464" height="874" alt="" loading="lazy">
+            <img class="wl-dona__esquerdo" src="/assets/dona-conta/braco-esquerdo.webp?v=2" width="464" height="874" alt="" loading="lazy">
+            <img class="wl-dona__direito" src="/assets/dona-conta/braco-direito.webp?v=2" width="464" height="874" alt="" loading="lazy">
+            <div class="wl-dona__cabeca">
+              <img src="/assets/dona-conta/cabeca.webp?v=2" width="464" height="874" alt="" loading="lazy">
+              <i class="wl-dona__olho wl-dona__olho--a"></i>
+              <i class="wl-dona__olho wl-dona__olho--b"></i>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -441,7 +519,8 @@
             <p class="lead">São 11 telas com a sua marca, em tema claro e escuro. Os números do portal e da conversa saem do mesmo motor, então nunca se contradizem.</p>
             <ul class="lista-check">
               <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Nota de saúde financeira, de 0 a 100, com o cálculo explicado.</li>
-              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Contas, cartões, faturas, metas, recorrentes e parcelamentos.</li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Contas, cartões, faturas, recorrentes e parcelamentos.</li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Metas de guardar e limites de gasto, em abas separadas.</li>
               <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Relatórios com exportação em CSV, PDF e Excel.</li>
               <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Tela fora do plano vira convite para subir de plano.</li>
             </ul>
@@ -533,14 +612,14 @@
             <div class="wl-admin__tela" role="tabpanel" id="tela-visao" aria-labelledby="aba-visao">
               <div class="wl-kpis">
                 <div><small>Clientes</small><strong>248</strong></div>
-                <div><small>Grupos vinculados</small><strong>251</strong></div>
-                <div><small>Grupos com agente ativo</small><strong>249</strong></div>
+                <div><small>Grupos vinculados</small><strong>248</strong></div>
+                <div><small>Grupos com agente ativo</small><strong>247</strong></div>
                 <div><small>Números conectados</small><strong>3</strong></div>
               </div>
               <div class="wl-bloco">
                 <div class="wl-bloco__titulo"><b>Saúde das conexões</b><span class="wl-chip wl-chip--ok">Tudo operacional</span></div>
-                <div class="wl-linha"><span>Número 1 · rodízio</span><span class="wl-chip wl-chip--ok">Conectado</span><em>92 grupos</em></div>
-                <div class="wl-linha"><span>Número 2 · rodízio</span><span class="wl-chip wl-chip--ok">Conectado</span><em>88 grupos</em></div>
+                <div class="wl-linha"><span>Número 1 · rodízio</span><span class="wl-chip wl-chip--ok">Conectado</span><em>90 grupos</em></div>
+                <div class="wl-linha"><span>Número 2 · rodízio</span><span class="wl-chip wl-chip--ok">Conectado</span><em>87 grupos</em></div>
                 <div class="wl-linha"><span>Número 3 · rodízio</span><span class="wl-chip wl-chip--ok">Conectado</span><em>71 grupos</em></div>
               </div>
               <p class="wl-admin__legenda">Clientes, grupos e números num relance, com aviso no sino quando um número cai.</p>
@@ -560,9 +639,9 @@
             <div class="wl-admin__tela" role="tabpanel" id="tela-planos" aria-labelledby="aba-planos" hidden>
               <div class="wl-bloco">
                 <div class="wl-bloco__titulo"><b>Planos à venda</b><span class="wl-chip">3 planos</span></div>
-                <div class="wl-linha"><span>Essencial</span><em>1 pessoa · 1 grupo</em><span class="wl-botao-falso">Copiar link</span></div>
+                <div class="wl-linha"><span>Essencial</span><em>1 pessoa</em><span class="wl-botao-falso">Copiar link</span></div>
                 <div class="wl-linha"><span>Casal <i class="wl-selo-mini">Mais escolhido</i></span><em>2 pessoas</em><span class="wl-botao-falso">Copiar link</span></div>
-                <div class="wl-linha"><span>Família Premium</span><em>6 pessoas · 2 grupos</em><span class="wl-botao-falso">Copiar link</span></div>
+                <div class="wl-linha"><span>Família Premium</span><em>6 pessoas</em><span class="wl-botao-falso">Copiar link</span></div>
               </div>
               <div class="wl-funil-mini">
                 <div><small>Cadastros</small><strong>412</strong></div>
@@ -593,7 +672,7 @@
                 <span>Lançamento</span><span>Edição</span><span>Relatório</span>
                 <span>Agenda</span><span>Recepcionista</span><span>Consultor</span>
               </div>
-              <p class="wl-admin__legenda">7 agentes de IA, cada um com instruções, modelos de mensagem, vocabulário, tom e figurinhas. E um banco de testes que mostra o que seria registrado, sem gravar nada.</p>
+              <p class="wl-admin__legenda">7 agentes de IA, cada um com instruções, modelos de mensagem, tom e figurinhas. Configurações de linguagem reúne num lugar só o que ensina o assistente a entender o grupo.</p>
             </div>
 
             <div class="wl-admin__tela" role="tabpanel" id="tela-config" aria-labelledby="aba-config" hidden>
@@ -615,7 +694,7 @@
     <section class="secao" id="planos-modulares">
       <div class="caixa">
         <h2 class="centro">Você decide o que cada plano libera. <span class="titulo-destaque">O upgrade se vende sozinho.</span></h2>
-        <p class="lead centro">20 recursos que ligam e desligam por plano, 5 limites e até 4 ciclos de cobrança. Mudou o plano, vale na hora para todos os clientes dele.</p>
+        <p class="lead centro">23 recursos que ligam e desligam por plano, 4 limites e até 4 ciclos de cobrança. Mudou o plano, vale na hora para todos os clientes dele.</p>
 
         <div class="wl-modulos">
           <fieldset class="wl-modulo">
@@ -624,6 +703,7 @@
             <label><input type="checkbox" checked> Cartões de crédito</label>
             <label><input type="checkbox" checked> Relatórios</label>
             <label><input type="checkbox" checked> Metas e limites</label>
+            <label><input type="checkbox" checked> Metas de guardar</label>
             <label><input type="checkbox" checked> Recorrentes</label>
             <label><input type="checkbox" checked> Parcelamentos</label>
             <label><input type="checkbox"> Agenda</label>
@@ -637,15 +717,17 @@
             <label><input type="checkbox" checked> Editar e excluir pelo grupo</label>
             <label><input type="checkbox"> Agentes consultores</label>
             <label><input type="checkbox"> Figurinhas nas respostas</label>
+            <label><input type="checkbox"> Mensagens do jeito de vocês</label>
           </fieldset>
           <fieldset class="wl-modulo">
             <legend>Envios automáticos</legend>
             <label><input type="checkbox"> Avisos de vencimento</label>
             <label><input type="checkbox"> Avisos de metas</label>
+            <label><input type="checkbox"> Avisos de metas de guardar</label>
             <label><input type="checkbox"> Lembretes da agenda</label>
             <label><input type="checkbox"> Resumo periódico</label>
             <label><input type="checkbox"> Figurinha no resumo</label>
-            <label><input type="checkbox"> Resumo reescrito pela IA</label>
+            <label><input type="checkbox"> Análise dos gastos com IA</label>
           </fieldset>
         </div>
         <p class="wl-legenda">Pode clicar: é assim que você monta um plano. Os envios automáticos nascem desligados e ficam para os planos mais caros.</p>
@@ -656,19 +738,19 @@
             <h4>Essencial</h4>
             <p class="wl-degrau__para">Quem mora sozinho</p>
             <p>Texto e áudio, relatório no grupo, categorias e dashboard.</p>
-            <span class="wl-chip">1 pessoa · 1 grupo</span>
+            <span class="wl-chip">1 pessoa</span>
           </article>
           <article class="wl-degrau">
             <h4>Casal</h4>
             <p class="wl-degrau__para">Duas pessoas</p>
-            <p>Tudo do Essencial, mais foto, edição pelo grupo, cartões, contas, metas, recorrentes e parcelamentos.</p>
+            <p>Tudo do Essencial, mais foto, edição pelo grupo, cartões, contas, metas de gasto e de guardar, recorrentes e parcelamentos.</p>
             <span class="wl-chip">2 pessoas</span>
           </article>
           <article class="wl-degrau wl-degrau--topo">
             <h4>Família Premium</h4>
             <p class="wl-degrau__para">A família completa</p>
-            <p>Tudo, mais agenda, consultores, figurinhas, avisos de vencimento, resumo semanal e exportação.</p>
-            <span class="wl-chip">6 pessoas · 2 grupos</span>
+            <p>Tudo, mais agenda, consultores, figurinhas, mensagens do jeito da família, avisos, resumo com análise da IA e exportação.</p>
+            <span class="wl-chip">6 pessoas</span>
           </article>
         </div>
         <ul class="wl-pills" aria-label="Formas de começar">
@@ -677,6 +759,7 @@
           <li>Mensal, trimestral, semestral e anual</li>
           <li>Troca de plano proporcional</li>
           <li>Plano interno para cortesia e parceiro</li>
+          <li>Página do plano mostra o que inclui e o que falta</li>
         </ul>
       </div>
     </section>
@@ -703,13 +786,25 @@
             </div>
           </figure>
         </div>
+        <div class="wl-jeito">
+          <div class="wl-jeito__texto">
+            <h3>E cada família ainda pode escolher o próprio jeito.</h3>
+            <p>Em Perfil, a conta descreve como quer que o assistente fale. A cada lançamento, a IA escreve na hora a frase que abre a mensagem nesse jeito, reagindo ao que foi lançado. Valor, categoria, data e código continuam montados pelo sistema.</p>
+            <p class="wl-jeito__pedido">“Fale como mineiro, com uai e sô, e comemore muito as receitas.”</p>
+            <p class="wl-jeito__nota">É um recurso de plano: bom motivo para subir de plano. As frases nunca trazem números ou links e passam por moderação.</p>
+          </div>
+          <div class="wl-zap">
+            <p class="bolha bolha--eu"><b class="bolha__nome">Ana</b>recebi 1550 de um freela</p>
+            <p class="bolha"><b class="bolha__nome bolha__nome--ela">Dona Conta</b>Uai, sô, que trem bão! Essa entrada merece até um cafezinho! ☕<br><br>✅ Tipo: Receita<br>📲 Descrição: Freela<br>💰 Valor: R$ 1.550,00<br>📍 Categoria: Renda extra<br>👉 Código: HJRDG9</p>
+          </div>
+        </div>
         <div class="recursos wl-ajustes">
           <article class="recurso"><svg class="i" aria-hidden="true"><use href="#i-pessoas"/></svg><h3>Nome e tom</h3><p>Amigável, consultivo, brincalhão, motivador ou formal. Com emojis sempre, às vezes ou nunca.</p></article>
-          <article class="recurso"><svg class="i" aria-hidden="true"><use href="#i-documento"/></svg><h3>107 textos e os modelos</h3><p>Boas-vindas, avisos, cobrança e cada resposta, com variáveis e “Restaurar padrão”.</p></article>
-          <article class="recurso"><svg class="i" aria-hidden="true"><use href="#i-curso"/></svg><h3>Vocabulário</h3><p>Gírias regionais, nomes de loja e os termos do seu curso, para ela entender seu público.</p></article>
+          <article class="recurso"><svg class="i" aria-hidden="true"><use href="#i-documento"/></svg><h3>127 textos e os modelos</h3><p>Boas-vindas, avisos, cobrança e cada resposta, com variáveis e “Restaurar padrão”.</p></article>
+          <article class="recurso"><svg class="i" aria-hidden="true"><use href="#i-curso"/></svg><h3>Configurações de linguagem</h3><p>Frases de exemplo, gírias, nomes de loja e os termos do seu curso, para ela entender o seu público.</p></article>
           <article class="recurso"><svg class="i" aria-hidden="true"><use href="#i-comunidade"/></svg><h3>Figurinhas da sua marca</h3><p>Até 12 por tipo de mensagem, com intervalo mínimo para não virar barulho.</p></article>
           <article class="recurso"><svg class="i" aria-hidden="true"><use href="#i-calculadora"/></svg><h3>Consultores próprios</h3><p>Crie um “Coach de dívidas” ou um “Consultor de investimentos” e libere só em certos planos.</p></article>
-          <article class="recurso"><svg class="i" aria-hidden="true"><use href="#i-pulso"/></svg><h3>Banco de testes</h3><p>Digite uma frase e veja para qual agente ela vai e o que seria registrado, sem gravar nada.</p></article>
+          <article class="recurso"><svg class="i" aria-hidden="true"><use href="#i-pulso"/></svg><h3>Testar mensagem</h3><p>Digite uma frase e veja quem responderia, um agente ou uma regra do app, e leve direto até ela.</p></article>
         </div>
         <p class="garantia wl-nota"><svg class="i" aria-hidden="true"><use href="#i-chave"/></svg><span><b>Custo de IA mínimo.</b> Com o gpt-4o-mini, cada mensagem de texto custa menos de 1 centavo de real: cerca de R$ 2 por mês para uma família que manda 10 mensagens por dia. Usa a sua própria chave da OpenAI, com atalhos sem IA para “sim” e “paguei” e um teto diário de mensagens por plano.</span></p>
       </div>
@@ -733,6 +828,7 @@
           <ul class="lista-check">
             <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Renovação confirmada estende o período; atraso, reembolso ou chargeback bloqueiam portal e grupo, sempre preservando os dados.</li>
             <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Fim do teste e fim da promoção são avisados no grupo, com antecedência.</li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Assinatura bloqueada para de receber envios automáticos. Regularizou, tudo volta.</li>
             <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>O próprio cliente troca de plano, pagando só a diferença dos dias. Nunca gera duas cobranças.</li>
             <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Cadastro que não paga em 7 dias é apagado, e continua contando no funil.</li>
           </ul>
@@ -897,6 +993,47 @@
   <div class="barra-fixa" aria-hidden="true">
     <a class="btn btn--primario" href="#oferta" data-comprar tabindex="-1">Quero ter o meu app</a>
   </div>
+
+  <!-- Modelo das janelas de conversa. js/whitelabel.js clona uma para cada roteiro. -->
+  <template id="wl-fone-modelo">
+    <figure class="wl-chat demo-controlada" aria-hidden="true">
+      <div class="zap__topo">
+        <span class="zap__voltar">‹</span>
+        <img src="/assets/mascote.webp" width="40" height="40" alt="" class="zap__avatar">
+        <div class="zap__grupo">
+          <strong>Minhas finanças</strong>
+          <span>Ana, Beto, <span data-fone-assistente>Dona Conta</span></span>
+        </div>
+        <span class="zap__acoes">⌕ ···</span>
+      </div>
+      <div class="zap__conversa demo-chat">
+        <span class="demo-data">Hoje</span>
+        <div class="demo-cenas"><div class="demo-feed" data-fone-feed></div></div>
+        <div class="demo-digitando">
+          <img src="/assets/mascote.webp" width="24" height="24" alt="">
+          <span><span data-fone-assistente>Dona Conta</span> está digitando</span>
+          <i></i><i></i><i></i>
+        </div>
+      </div>
+      <div class="demo-compositor">
+        <span class="demo-compositor__mais">＋</span>
+        <span class="demo-compositor__campo">
+          <span class="demo-compositor__placeholder">Mensagem</span>
+          <span class="demo-compositor__digitado" data-fone-digitado></span><i class="demo-compositor__cursor"></i>
+          <span class="demo-gravacao">
+            <i class="demo-gravacao__ponto"></i>
+            <time data-fone-tempo>0:00</time>
+            <span class="demo-gravacao__onda"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+            <b>gravando</b>
+          </span>
+        </span>
+        <span class="demo-compositor__acao">
+          <svg class="i demo-compositor__mic" aria-hidden="true"><use href="#i-mic"/></svg>
+          <span class="demo-compositor__enviar">➤</span>
+        </span>
+      </div>
+    </figure>
+  </template>
 
   <!-- Aviso de cookies: só aparece com o Pixel ou o GA ligados no config.js -->
   <div class="cookies" role="region" aria-label="Aviso de cookies" hidden>
