@@ -38,7 +38,7 @@ window.WL = {
         'Liberdade para modificar e evoluir',
         'Instalação, atualizações e correções por sua conta'
       ],
-      linkCompra: ''
+      linkCompra: 'https://checkout.tucapay.net/c/donaconta-whitelabel?plan=dcd933ca-f68c-4f98-ad5e-909aeb610ce8'
     }
   ],
 
