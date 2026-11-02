@@ -12,8 +12,10 @@ window.WL = {
 
   // WhatsApp de vendas, com DDI e DDD, só números. Vazio = usa o
   // whatsappSuporte do config.js da raiz.
-  whatsappVendas: '',
+  whatsappVendas: '5511945676825',
   mensagemWhatsapp: 'Oi! Vi a página e quero ter o meu app de finanças no WhatsApp com a minha marca.',
+  // Mensagem do botão fixo do WhatsApp, no canto direito da página.
+  mensagemDuvidas: 'Olá, gostaria de tirar algumas dúvidas sobre o Whitelabel da Dona Conta',
 
   // Link do grupo de demonstração ao vivo. Vazio = "Ver a demonstração"
   // rola até as conversas da própria página.

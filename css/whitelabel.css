@@ -419,6 +419,40 @@
   .wl-v2 .hero__texto > .wl-video { grid-column: 2; grid-row: 1 / 7; width: 315px; margin: 0 auto; }
 }
 
+/* ---------- Botão fixo do WhatsApp ---------- */
+/* No celular, fica acima da barra fixa de compra. */
+.wl-whats {
+  position: fixed; right: 16px; bottom: calc(86px + env(safe-area-inset-bottom)); z-index: 35;
+  display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%;
+  color: #fff; background: #25d366; box-shadow: 0 10px 28px rgba(0, 0, 0, .38);
+  transition: transform .2s ease;
+  animation: wl-whats-treme 5s ease-in-out infinite;
+}
+/* Parado quase o tempo todo: só treme no último meio segundo de cada 5 s. */
+@keyframes wl-whats-treme {
+  0%, 90%, 100% { transform: rotate(0); }
+  92% { transform: rotate(-7deg); }
+  94% { transform: rotate(7deg); }
+  96% { transform: rotate(-5deg); }
+  98% { transform: rotate(4deg); }
+}
+/* Halo verde de borda esfumaçada: cresce a partir do botão e some. */
+.wl-whats::before {
+  content: ''; position: absolute; inset: 0; z-index: -1; border-radius: 50%;
+  background: #25d366; filter: blur(7px);
+  animation: wl-whats-pulsa 2s ease-out infinite;
+}
+@keyframes wl-whats-pulsa {
+  0% { transform: scale(1); opacity: .7; }
+  75%, 100% { transform: scale(1.6); opacity: 0; }
+}
+.wl-whats svg { width: 30px; height: 30px; fill: currentColor; }
+.wl-whats:hover { animation: none; transform: scale(1.06); }
+.wl-whats:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+@media (min-width: 900px) {
+  .wl-whats { right: 24px; bottom: 24px; }
+}
+
 /* ---------- Oferta ---------- */
 .wl-ofertas { display: grid; gap: 22px; }
 .wl-ofertas .plano__valor { font-size: clamp(2rem, 3vw, 2.3rem); }
