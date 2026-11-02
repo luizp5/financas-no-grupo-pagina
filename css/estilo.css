@@ -576,6 +576,9 @@ h3 { font-size: 1.12rem; }
 .pagina-pronta .bolha:nth-child(4) { animation-delay: 1.26s; }
 .revelar { opacity: 0; transform: translateY(34px); transition: opacity .7s ease var(--atraso, 0ms), transform .75s cubic-bezier(.2,.75,.2,1) var(--atraso, 0ms); }
 .revelar.revelado { opacity: 1; transform: none; }
+/* Fora da tela, as animações em loop esperam: voltam de onde pararam. */
+.em-pausa, .em-pausa::before, .em-pausa::after,
+.em-pausa *, .em-pausa *::before, .em-pausa *::after { animation-play-state: paused !important; }
 
 @keyframes mensagem-entra { from { opacity: 0; transform: translateY(12px) scale(.97); } to { opacity: 1; transform: none; } }
 @keyframes celular-flutua { 0%, 100% { translate: 0 0; } 50% { translate: 0 -9px; } }
@@ -2192,14 +2195,16 @@ h2 .titulo-destaque { display: block; }
   flex-direction: column;
   align-items: flex-start;
   gap: 7px;
-  overflow: hidden auto;
-  overscroll-behavior: contain;
+  /* Só o script rola a conversa: o scroll de quem lê passa direto para a página. */
+  overflow: hidden;
   scrollbar-width: none;
   opacity: 1;
   transition: opacity .34s ease, transform .34s ease;
 }
 
 .demo-controlada .demo-feed::-webkit-scrollbar { display: none; }
+/* A digitação mexe aqui letra a letra; o resto da página não precisa recalcular. */
+.demo-compositor { contain: layout style; }
 .demo-controlada .demo-feed.is-reiniciando { opacity: 0; transform: translateY(-10px); }
 
 .demo-controlada .demo-feed__item {

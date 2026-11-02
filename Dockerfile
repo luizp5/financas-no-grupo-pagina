@@ -9,5 +9,6 @@ COPY css /usr/share/nginx/html/css
 COPY js /usr/share/nginx/html/js
 COPY assets /usr/share/nginx/html/assets
 COPY whitelabel /usr/share/nginx/html/whitelabel
+COPY whitelabel-v2 /usr/share/nginx/html/whitelabel-v2
 
 EXPOSE 80

@@ -65,7 +65,7 @@ window.SITE = {
   // História do fundador. Com false, a seção some.
   fundador: {
     mostrar: true,
-    nome: 'Guilherme, fundador',
+    nome: 'Luiz Paulo, fundador',
     foto: '' // ex.: 'assets/fundador.webp'; vazio = mostra o mascote
   },
 
