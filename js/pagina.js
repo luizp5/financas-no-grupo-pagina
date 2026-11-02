@@ -434,8 +434,14 @@
       'is-agente-digitando', 'is-gravando', 'is-audio-pronto'
     ];
 
+    var visivel = true;
+    var acordar = null;
+
     function esperar(ms) {
-      return new Promise(function (resolver) { window.setTimeout(resolver, ms); });
+      return new Promise(function (resolver) { window.setTimeout(resolver, ms); }).then(function () {
+        if (visivel) return null;
+        return new Promise(function (resolver) { acordar = resolver; });
+      });
     }
 
     function limparFases() {
@@ -570,6 +576,13 @@
       }
     }
 
+    // Só anda quando está na tela: fora dela, ninguém vê e a rolagem paga a conta.
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entradas) {
+        visivel = entradas[entradas.length - 1].isIntersecting;
+        if (visivel && acordar) { acordar(); acordar = null; }
+      }).observe(demo);
+    }
     repetir();
   }
 
@@ -689,6 +702,13 @@
         });
       }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
       animados.forEach(function (item) { observador.observe(item); });
+    }
+
+    if (!reduzMovimento && 'IntersectionObserver' in window) {
+      var pausa = new IntersectionObserver(function (entradas) {
+        entradas.forEach(function (entrada) { entrada.target.classList.toggle('em-pausa', !entrada.isIntersecting); });
+      }, { rootMargin: '200px 0px' });
+      todos('.hero, .secao').forEach(function (secao) { pausa.observe(secao); });
     }
 
     window.requestAnimationFrame(function () {

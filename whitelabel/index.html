@@ -27,15 +27,17 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@72,800&family=Inter:wght@400;500;600;700;800&display=swap">
-  <link rel="stylesheet" href="/css/estilo.css?v=20261026-2">
-  <link rel="stylesheet" href="/css/whitelabel.css?v=20261030-13">
+  <!-- Fontes sem segurar a abertura: o texto aparece na hora e a fonte entra quando chegar. -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@72,800&family=Inter:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@72,800&family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
+  <link rel="stylesheet" href="/css/estilo.css?v=20261102-1">
+  <link rel="stylesheet" href="/css/whitelabel.css?v=20261102-6">
 
-  <script src="/config.js"></script>
-  <script src="/whitelabel/config.js"></script>
-  <script src="/whitelabel/conversas.js?v=20261030-2"></script>
-  <script src="/js/pagina.js?v=20261026-1" defer></script>
-  <script src="/js/whitelabel.js?v=20261030-7" defer></script>
+  <script src="/config.js" defer></script>
+  <script src="/whitelabel/config.js" defer></script>
+  <script src="/whitelabel/conversas.js?v=20261030-2" defer></script>
+  <script src="/js/pagina.js?v=20261102-1" defer></script>
+  <script src="/js/whitelabel.js?v=20261102-3" defer></script>
 </head>
 <body class="wl">
   <!-- Ícones usados na página (desenho de linha, herdam a cor do texto) -->
@@ -105,7 +107,7 @@
           </div>
           <p class="cta__nota">A mensalidade dos seus clientes cai direto na sua conta Asaas.</p>
           <ul class="hero__provas" aria-label="Vantagens">
-            <li>Sem programar</li>
+            <li>Pagamento único</li>
             <li>Grupo criado sozinho</li>
             <li>Instalação própria</li>
           </ul>
@@ -165,7 +167,7 @@
                       <time>10:11</time>
                     </article>
                     <div class="demo-sticker-wrap">
-                      <img class="demo-sticker" src="/assets/figurinha-mais-uma-pra-conta.png" width="88" height="88" alt="">
+                      <img class="demo-sticker" src="/assets/figurinha-mais-uma-pra-conta.webp" width="88" height="88" alt="">
                     </div>
                   </div>
 
@@ -308,7 +310,7 @@
             </ul>
           </article>
           <article class="wl-caminho wl-caminho--certo">
-            <h3>Licenciar o <span data-marca>Dona Conta</span></h3>
+            <h3>Ter o código do <span data-marca>Dona Conta</span></h3>
             <ul class="lista-check">
               <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Produto pronto, com a sua marca em dias.</li>
               <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Mora no grupo da família, que é onde ela não esquece.</li>
@@ -351,7 +353,7 @@
           <img class="fundador__foto" src="/assets/mascote.webp" width="120" height="120" alt="" data-fundador-foto>
           <blockquote>
             <p>“Eu testei os apps de WhatsApp e esquecia de lançar. Quando passei a lançar no grupo com a minha esposa, a gente parou de esquecer.”</p>
-            <footer data-fundador-nome>Guilherme, fundador</footer>
+            <footer data-fundador-nome>Luiz Paulo, fundador</footer>
           </blockquote>
         </figure>
         <!-- FIM EDITÁVEL -->
@@ -775,7 +777,7 @@
             <div class="wl-zap">
               <p class="bolha bolha--eu"><b class="bolha__nome">Ana</b>gastei 45,90 no almoço</p>
               <p class="bolha"><b class="bolha__nome bolha__nome--ela">Dona Conta</b>Anotadíssimo! 🍽️ Almoço de R$ 45,90 em Alimentação. Tô de olho, hein? 👀<br>👉 GF8656</p>
-              <img class="wl-persona__figurinha" src="/assets/figurinha-mais-uma-pra-conta.png" width="88" height="88" alt="Figurinha da Dona Conta" loading="lazy">
+              <img class="wl-persona__figurinha" src="/assets/figurinha-mais-uma-pra-conta.webp" width="88" height="88" alt="Figurinha da Dona Conta" loading="lazy">
             </div>
           </figure>
           <figure class="wl-persona">
@@ -889,7 +891,7 @@
             <div><small>Em 12 meses</small><strong data-resultado="ano">R$ 115.800,00</strong></div>
           </div>
         </div>
-        <p class="wl-legenda">Simulação. Os custos iniciais são exemplos: ajuste com os seus números. Não inclui o valor da licença, as taxas do Asaas, impostos nem cancelamentos.</p>
+        <p class="wl-legenda">Simulação. Os custos iniciais são exemplos: ajuste com os seus números. Não inclui o valor do código-fonte, as taxas do Asaas, impostos nem cancelamentos.</p>
         <div class="cta cta--centro">
           <a class="btn btn--primario btn--grande" href="#oferta" data-comprar>Quero ter o meu app</a>
         </div>
@@ -899,7 +901,7 @@
     <!-- ============ 17. OFERTA ============ -->
     <section class="secao secao--azul" id="oferta">
       <div class="caixa">
-        <h2 class="centro">Tudo o que vem <span class="titulo-destaque">na sua licença.</span></h2>
+        <h2 class="centro">Tudo o que vem <span class="titulo-destaque">no código-fonte.</span></h2>
         <div class="oferta">
           <div class="pilha">
             <h3>O que você recebe</h3>
@@ -910,7 +912,7 @@
               <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Link de venda, checkout com Pix Automático e cartão, e funil por campanha.</li>
               <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Grupos do WhatsApp criados sozinhos depois do pagamento.</li>
               <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Marca, domínio, número, textos, termos e e-mails seus.</li>
-              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Tudo no seu próprio servidor: instalado por nós ou a partir do código-fonte.</li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Tudo no seu próprio servidor, com o código na sua mão.</li>
             </ul>
             <div class="wl-bonus" data-bonus hidden>
               <h3>Bônus</h3>
@@ -930,6 +932,7 @@
             <li><svg class="i" aria-hidden="true"><use href="#i-dinheiro"/></svg>Conta no Asaas, para receber</li>
             <li><svg class="i" aria-hidden="true"><use href="#i-chave"/></svg>Chave da OpenAI, para a IA</li>
             <li><svg class="i" aria-hidden="true"><use href="#i-documento"/></svg>Resend, para e-mails (opcional, recomendado)</li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-cadeado"/></svg>Conta no GitHub</li>
           </ul>
         </div>
       </div>
@@ -941,8 +944,8 @@
         <h2>Perguntas <span class="titulo-destaque">frequentes</span></h2>
         <!-- EDITÁVEL: perguntas e respostas -->
         <div class="faq">
-          <details><summary>Preciso saber programar?</summary><p>Não, na Licença + Implantação: a gente entrega instalado na sua VPS, e tudo se configura pelo painel (marca, planos, textos, agentes e pagamentos). Só a compra do código-fonte pede conhecimento técnico, porque a instalação e as modificações ficam com você.</p></details>
-          <details><summary>Qual a diferença entre as duas opções?</summary><p>Na Licença + Implantação, você paga R$ 397,00 de setup e R$ 197,00 por mês, recebe o app instalado na sua VPS e a gente cuida das atualizações e correções. No Código-fonte, você paga R$ 997,00 uma vez, recebe o código completo e segue com as suas próprias modificações e atualizações.</p></details>
+          <details><summary>Preciso saber programar?</summary><p>Para operar, não: marca, planos, textos, agentes e pagamentos se configuram pelo painel. Já a instalação no servidor e as modificações no código ficam com você e pedem conhecimento técnico.</p></details>
+          <details><summary>O que eu recebo na compra?</summary><p>O código-fonte completo do produto, por R$ 497,00 em pagamento único nas 100 primeiras licenças, sem mensalidade. Depois, o valor volta a R$ 1.997,00. Você instala no seu servidor, modifica como quiser e segue com as suas próprias atualizações.</p></details>
           <details><summary>E se o WhatsApp bloquear o número?</summary><p>O risco existe, porque a conexão usa uma API não oficial. Ele é reduzido com ritmo de envio, proxy por número, rodízio, teto de grupos e avisos só quando necessário. Cada cliente fica no mesmo número, e um número caído sai da roda na criação de novos grupos.</p></details>
           <details><summary>Quanto custa a IA por cliente?</summary><p>Quase nada. O padrão é o gpt-4o-mini, um dos modelos mais baratos da OpenAI: US$ 0,15 por milhão de tokens lidos e US$ 0,60 por milhão escritos. Na prática, cada mensagem de texto custa <b>menos de 1 centavo de real</b>, e uma família que manda 10 mensagens por dia fica em torno de <b>R$ 2 por mês</b>. Áudio e foto custam um pouco mais, poucos centavos cada. Ainda há atalhos sem IA para “sim” e “paguei” e um teto diário de mensagens por plano. O custo cai na sua própria chave da OpenAI; os valores são estimativas e variam com o uso e o câmbio.</p></details>
           <details><summary>Como eu recebo dos meus clientes?</summary><p>Direto na sua conta Asaas, sem intermediário, com Pix Automático e cartão recorrentes. O painel mostra cada cobrança e a situação de cada assinatura.</p></details>
@@ -951,7 +954,7 @@
           <details><summary>Meu cliente não vai largar como larga todo app?</summary><p>No grupo não existe app para esquecer. Os avisos e o resumo da semana puxam a família de volta, e o painel mede quantos acessos vieram do grupo.</p></details>
           <details><summary>Posso mudar a cara do assistente?</summary><p>Sim: nome, tom, emojis, textos, figurinhas e vocabulário. Dá para ter uma tia brincalhona, um assistente formal para clientes de contabilidade ou o “Assistente do Método X” com os termos do seu curso.</p></details>
           <details><summary>Dá para vender para um nicho?</summary><p>Sim. Categorias, consultores, vocabulário e planos são seus: dá para montar um assistente de MEI, de igreja ou de um método de curso.</p></details>
-          <details><summary>Vou ter suporte e atualizações?</summary><p data-resposta-suporte>Depende da opção. Na Licença + Implantação, a gente entrega instalado na sua VPS e cuida das atualizações e correções enquanto a mensalidade estiver ativa. Na compra do código-fonte, você recebe o código completo e segue com as suas próprias modificações e atualizações.</p></details>
+          <details><summary>Vou ter suporte e atualizações?</summary><p data-resposta-suporte>Você recebe o código completo e segue com as suas próprias modificações, atualizações e correções, sem mensalidade.</p></details>
         </div>
         <!-- FIM EDITÁVEL -->
       </div>

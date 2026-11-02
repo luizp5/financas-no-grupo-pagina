@@ -19,32 +19,22 @@ window.WL = {
   // rola até as conversas da própria página.
   linkDemo: '',
 
-  // As opções de compra, em reais. setup = valor cobrado uma vez; mensal =
-  // mensalidade (null = não tem). Sem os dois, a página mostra "sob
-  // consulta". linkCompra vazio = usa o linkCompra geral.
+  // As opções de compra, em reais. de = preço antigo, riscado acima do valor
+  // (opcional); condicao = aviso logo abaixo do preço (opcional); setup = valor cobrado uma vez; mensal = mensalidade (null =
+  // não tem). Sem os dois, a página mostra "sob consulta". linkCompra vazio =
+  // usa o linkCompra geral.
   ofertas: [
     {
-      nome: 'Licença + Implantação',
-      descricao: 'A gente entrega instalado na sua VPS e cuida das atualizações e correções.',
-      setup: 397,
-      mensal: 197,
-      destaque: true,
-      inclui: [
-        'Instalado e configurado na sua VPS',
-        'Domínio, número de WhatsApp e Asaas conectados',
-        'Marca, cores e assistente configurados',
-        'Atualizações e correções enquanto a mensalidade estiver ativa'
-      ],
-      linkCompra: ''
-    },
-    {
-      nome: 'Código-fonte',
-      descricao: 'Você recebe o código completo para modificar como quiser e seguir com as suas próprias atualizações.',
-      setup: 997,
+      nome: 'Código-fonte Liberado',
+      descricao: 'O código completo do produto é seu, para instalar no seu servidor e modificar como quiser.',
+      de: 1997,
+      setup: 497,
+      condicao: 'Valor das 100 primeiras licenças. Depois, volta a R$ 1.997,00.',
       mensal: null,
       destaque: false,
       inclui: [
         'Código-fonte completo do produto',
+        'Sua marca, no seu próprio servidor',
         'Liberdade para modificar e evoluir',
         'Instalação, atualizações e correções por sua conta'
       ],
@@ -63,7 +53,7 @@ window.WL = {
   garantia: 'Direito de arrependimento de 7 dias, conforme o Código de Defesa do Consumidor.',
 
   // Resposta do FAQ "Vou ter suporte e atualizações?".
-  respostaSuporte: 'Depende da opção. Na Licença + Implantação, a gente entrega instalado na sua VPS e cuida das atualizações e correções enquanto a mensalidade estiver ativa. Na compra do código-fonte, você recebe o código completo e segue com as suas próprias modificações e atualizações.',
+  respostaSuporte: 'Você recebe o código completo e segue com as suas próprias modificações, atualizações e correções, sem mensalidade.',
 
   // Valores iniciais do simulador de receita.
   simulador: {

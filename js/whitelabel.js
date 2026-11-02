@@ -85,10 +85,18 @@
       card.appendChild(linha);
       if (setup != null) card.appendChild(el('p', 'plano__extra', 'Mais ' + reais.format(setup) + ' de setup, pago uma vez.'));
     } else if (setup != null) {
+      var de = numero(oferta.de);
+      if (de != null) {
+        var antes = el('p', 'plano__de', 'De ');
+        antes.appendChild(el('s', null, reais.format(de)));
+        antes.appendChild(document.createTextNode(' por apenas'));
+        card.appendChild(antes);
+      }
       linha.appendChild(el('span', 'plano__valor', reais.format(setup)));
       linha.appendChild(el('span', 'plano__ciclo', 'pagamento único'));
       card.appendChild(linha);
       card.appendChild(el('p', 'plano__extra', 'Sem mensalidade.'));
+      if (oferta.condicao) card.appendChild(el('p', 'plano__extra', oferta.condicao));
     } else {
       linha.appendChild(el('span', 'plano__valor plano__valor--consulta', 'Sob consulta'));
       card.appendChild(linha);
@@ -105,7 +113,7 @@
       card.appendChild(ul);
     }
 
-    var botao = el('a', 'btn ' + (destaque || total === 1 ? 'btn--primario' : 'btn--fantasma'), 'Quero esta opção');
+    var botao = el('a', 'btn ' + (destaque || total === 1 ? 'btn--primario' : 'btn--fantasma'), total === 1 ? 'Quero o código-fonte' : 'Quero esta opção');
     botao.href = destino(oferta);
     externo(botao);
     card.appendChild(botao);
@@ -533,7 +541,8 @@
     function figurinha() {
       var w = el('div', 'demo-sticker-wrap');
       var img = el('img', 'demo-sticker');
-      img.src = '/assets/figurinha-mais-uma-pra-conta.png';
+      img.src = '/assets/figurinha-mais-uma-pra-conta.webp';
+      img.decoding = 'async';
       img.width = 88;
       img.height = 88;
       img.alt = '';
